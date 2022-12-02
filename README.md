@@ -1,14 +1,8 @@
 # WaterMonitor
 MicroPython code for a microcontroller (Raspberry Pi Pico) based water monitoring solution using simple moisture detection via analog circuitry which interfaces as a digital inputs to the microcontroller (3.3V / 5V)
 
-# Design
-| Schematics |
-| ---------- |
-| ![alt text](https://github.com/Silverune/WaterMonitor/blob/main/diagrams/RDJ001.png "RDJ Water Sensor x2") |
-| ![alt text](https://github.com/Silverune/WaterMonitor/blob/main/diagrams/DSEFP3.png "DSFEP3 Water Sensor") |
-
 # Aim
-Come up with a monitoring solution for low moisture levels to aid in knowing when to waker in different seasons without the need to manually inspect each plant.
+Come up with a monitoring solution for low moisture levels to aid in knowing when to water in different seasons without the need to manually inspect each plant.
 
 # Target
 Sensors will be attached to 9 hanging plants in the garage which are exposed to a wide range of environmental conditions.  These include:
@@ -16,6 +10,12 @@ Sensors will be attached to 9 hanging plants in the garage which are exposed to 
 - Potentially lots of evaporation as each pot uses a coconut hanger which provides a lot of surface area with which to lose moisture.
 - Varying pot sizes so each plant should be monitored independently
 - Covers a fairly significant expanse (9m) 
+
+# Design
+| Schematics |
+| ---------- |
+| ![alt text](https://github.com/Silverune/WaterMonitor/blob/main/diagrams/RDJ001.png "RDJ Water Sensor x2") |
+| ![alt text](https://github.com/Silverune/WaterMonitor/blob/main/diagrams/DSEFP3.png "DSFEP3 Water Sensor") |
 
 # Status Quo
 
