@@ -4,8 +4,8 @@ MicroPython code for a microcontroller (Raspberry Pi Pico) based water monitorin
 # Design
 | Schematics |
 | ---------- |
-| ![alt text](https://github.com/Silverune/WaterMonitor/blob/master/diagrams/RDJ001.png "RDJ Water Sensor x2") |
-| ![alt text](https://github.com/Silverune/WaterMonitor/blob/master/diagrams/DSEFP3.png "DSFEP3 Water Sensor") |
+| ![alt text](https://github.com/Silverune/WaterMonitor/blob/main/diagrams/RDJ001.png "RDJ Water Sensor x2") |
+| ![alt text](https://github.com/Silverune/WaterMonitor/blob/main/diagrams/DSEFP3.png "DSFEP3 Water Sensor") |
 
 # Aim
 Come up with a monitoring solution for low moisture levels to aid in knowing when to waker in different seasons without the need to manually inspect each plant.
