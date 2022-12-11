@@ -84,6 +84,9 @@ After testing decision has been made to construct a simple breadboard implementa
  - Mounting of microcontroller to location which is physically close enough to the sensors
  - Power supplied by 5V not 3.3V.   While the pico runs at 3.3V the LCD screen requires 5V for correct operation.   Also as using an external power supply on the VSYS line cannot use the VBUS power previously (no USB power attached).
 
+### Probe construction
+The probes are made from a simple tent peg that has been bent into a straight shape making a long spike with a robust physical point able to push into hard soil.   Attached at one end is an Male Slide Connector which is slightly crimped and then soldered.   Though the hole is then soldered some AWG 22 single core wire which is then run to the required distance and inserted into the breadboard.
+
 ### TODO
 - Investigate cost of components
 - How much does the length of the wire (sensor) affect the resistance
