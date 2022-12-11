@@ -69,6 +69,21 @@ Based on the DSFE Volume 1 Project 3 (DS1-3)
 - Might be more expensive
 - Calibration might be quite complicated especially if not using potentiometers for the resistence.  Eventually the signal will need to be treated as a digital input so the resistor values need to be picked so that NW triggers either a low / high and FN triggers the opposite.   Mainly due to the limited number of analog inputs on the microcontrollers.
 
+# Alpha
+After testing decision has been made to construct a simple breadboard implementation using my simple analog circuit feeding the output as a digital signal into a Raspberry Pi Pico.  
+
+## Components
+- Micropython control code
+ - LCD GUI to show results / inputs from sensors
+ - Driver for new analog input
+ 
+- Physical Construction
+ - Probes consist of:
+   * Two conductive sensors that are able to be placed (long term) into the soil.   Should not corrode or if they corrode easily cleanable / replaceable.
+   * Each sensor is able to be run directly to the control board with one sensor connecting to GND while the other is the input.
+ - Mounting of microcontroller to location which is physically close enough to the sensors
+ - Power supplied by 5V not 3.3V.   While the pico runs at 3.3V the LCD screen requires 5V for correct operation.   Also as using an external power supply on the VSYS line cannot use the VBUS power previously (no USB power attached).
+
 ### TODO
 - Investigate cost of components
 - How much does the length of the wire (sensor) affect the resistance
