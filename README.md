@@ -1,15 +1,65 @@
 # WaterMonitor
-MicroPython code for a microcontroller (Raspberry Pi Pico) based water monitoring solution using simple moisture detection via analog circuitry which interfaces as a digital inputs to the microcontroller (3.3V / 5V)
+MicroPython code for a microcontroller (Raspberry Pi Pico) based water monitoring solution using simple moisture detection via analog circuitry which interfaces as digital inputs to the microcontroller (3.3V / 5V)
 
 # Aim
 Come up with a monitoring solution for low moisture levels to aid in knowing when to water in different seasons without the need to manually inspect each plant.
 
-# Target
-Sensors will be attached to 9 hanging plants in the garage which are exposed to a wide range of environmental conditions.  These include:
-- Wide range of humidity due to “outdoor” nature of location and a continually running dehumidifier
-- Potentially lots of evaporation as each pot uses a coconut hanger which provides a lot of surface area with which to lose moisture.
-- Varying pot sizes so each plant should be monitored independently
+# Status Quo
+Latest update is development nearing completion on the Beta prototype.
+
+## Completed
+- Firmware completed
+- Power supplied
+- Probe connector plate create / installed
+- Mounting plate created for controller
+- 1x Completed probe
+- 9x NPN resistors, capacitors soldiered
+
+## TODO
+- Soldering: signal probes, Vcc, GND.
+- Create other probes
+- Attach dual core wire to each probe
+- Cut dual core wire to appropriate length
+- Run each dual core wire from plant to probe plate
+- Move 5V power to give additional space for mounting offset
+- Reconnect power supply
+- Connect mounting plate
+- Connect mounting plate to wall
+- Connect the probe and controller plates together
+- Run each probe into the probe plate
+- Run each signal from the probe plate into the controller
+
+# Primary Target
+The initial installation will be to the 9 hanging plants in the garage area.  These are exposed to a wide range of environmental conditions, including:
+- Wide range in humidity due to “outdoor” nature of location and a continually running dehumidifier
+- Wide range in temperature due to limited insulation in garage and lack of air-conditioning.  Plants are also located physically in an elevated location near the apex of the structure.
+- Potentially lots of evaporation loss as each pot uses a coconut hanger which provides a lot of surface area with which to lose moisture.
+- Varying pot sizes so each plant should be monitored independently.
+- Varying planting so each plant may have its own moisture consumption profile.
 - Covers a fairly significant expanse (9m) 
+
+# Software Design
+Firmmware is written in MicroPython 3 running on a Raspberry Pi Pico.  Minor pin changes would likely be required to shift to other RPI (or compatible) hardware with minimal software changes required.  Broadly this code falls into the following main categories:
+- Controller - "main" which sets up the hardware and runs the main control loop
+- Device Drivers - custom drivers created for the water sensor probe (bespoke) as well as the 16x2 LCD display and temperature sensor
+- Misc - minor utility routines including custom fonts for visual representation of the water level.
+
+# Hardware Design
+The hardware consists of the following main areas:
+- Microcontroller - Raspberry Pi Pico
+- 16x2 backlit LCD - 4 input display (8 available but only 4 required [D4-D7])
+- Potentiometer - provides contrast for the LCD to deal with varying light conditions
+- 63 row protoboard (solderable breadboard) - houses the water sensor analog logic
+- Dual core wire: 40m approx - connects sensor probes (in plant) to the probe board
+- 2x 20pin female connectors for connecting the controller board to the probe board
+- 5V DC 2A fixed 2.1mm tip plugpack
+- DC barrel power jack / connector
+- 9x Each of the following:
+  - NPN transitions (2N2222 / S8050 effectively identical for this application) - NW / FN switch
+  - 330 Ohm resistors - controls the NW threshold
+  - Metal probe set (2x)
+  - Lever nut splicing connectors (2x)
+  - Probe to controller connecting wire (2x)
 
 # Design
 | Schematics |
@@ -17,10 +67,9 @@ Sensors will be attached to 9 hanging plants in the garage which are exposed to 
 | ![alt text](https://github.com/Silverune/WaterMonitor/blob/main/diagrams/RDJ001.png "RDJ Water Sensor x2") |
 | ![alt text](https://github.com/Silverune/WaterMonitor/blob/main/diagrams/DSEFP3.png "DSFEP3 Water Sensor") |
 
-# Status Quo
 
 ## Existing Approach
-Using a cheap water sensor (analog) that is able to show moisture on a scale of 1-10 (broadly) but is effectively uses as a binary (“Needs Water” / “Fine”) with these values being the same for all current plants (<3 “red” needs water, otherwise fine).
+Using a cheap water sensor (analog) that is able to show moisture on a scale of 1-10 (broadly) but is effectively uses as a binary (“Needs Water” [NW]/ “Fine” [FN]) with these values being the same for all current plants (<3 “red” needs water, otherwise fine).
 
 ### Downside of Existing Approach
 - Requires manually inspecting each plant
@@ -28,13 +77,8 @@ Using a cheap water sensor (analog) that is able to show moisture on a scale of 
 - Can be destructive to the plant as can cause root damage
 - Non-scalable
 - Time consuming
-- Pull technology - probs only noticed when inspected rather than Push
-- Only provides moisture only - no scope for temperature (tho this is currently not a requirement)
-
-### Solutions
-
-## Gold Plated
-TODO
+- Pull technology - probs only noticed when inspected rather than "pushed"
+- Provides moisture only - no scope for temperature (tho this is currently not a requirement)
 
 # Prototypes
 
@@ -57,7 +101,7 @@ First test was to use a uC to test the ability of monitoring the sensor.  Tested
 - Sensors are small and may not penetrate very far 
 
 ## Prototype 2 - Implement Purely in Analog
-Based on the DSFE Volume 1 Project 3 (DS1-3) 
+Based on the DSFE Volume 1 Project 3 (DS1-3) then modified to bring the logical / power levels into the acceptable range for both NW and FN.
 
 ### Advantages
 - Simple to debug
