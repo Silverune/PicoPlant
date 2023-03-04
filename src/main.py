@@ -39,6 +39,7 @@ waterSensors = [
     RDJ001(6),
     RDJ001(7),
     RDJ001(8),
+    RDJ001(9),
     
     RDJ001(10),
     RDJ001(11),
@@ -46,8 +47,6 @@ waterSensors = [
     RDJ001(13),
     
     RDJ001(14),
-    RDJ001(15),
-    
 ]
 
 temp = PicoTemp()
