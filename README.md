@@ -142,3 +142,89 @@ To construct the sensors the following process was used.
 2. Cut some wire that is easily able to span the distance from the plant to the controller.   This is where I used electrician’s wire as a single cable was able to hold two inner wires isolated and came in long roles (mine was a 100m in length!).
 3. Strip the wires and put each into a solder seal wire connector.  Use a heat gun to seal the tent peg to the wire (x2) 
 Congratulations - you have your first sensor.   Now do this again for however many you require - 9 in my case!
+
+Firmware
+
+This is not designed to be an exhaustive line by line talk-through of the micro Python code.  It is designed to give an oversight of what is being done, how it is being done and any non-obvious sections of the code that might be helped by additional explanation.
+
+Files:
+
+- main.py - this is the "main" where the micro Python starts executing the code.  All other files are referenced from this one.
+- rdj001.py - device interface for the voltage divider circuit.  Essentially, is a simple wrapper around assigning one of the GPIO pins to act as a digital input.
+- pico_temp.py - the Raspberry Pi Pico has a built in temperature sensor.  This file has routines for reading this value and processing the results
+- lcd_api.py - API class for sending information for display to the LCD
+- gpio_lcd.py - top-level class for interfacing to the LCD.  This is the class used by main.py.  It uses lcd_api.py as part of its implementation
+- common.py - utility routines and constants used by the firmware
+
+Additionally, optional files provided are:
+
+- hw080.py - device interface if using a traditional off-the-shelf water sensor
+- capacitive.py - device interface if using one of the newer capacitive off-the-shelf water sensors
+
+As mentioned previously, the provided implementation uses only the voltage divider circuit so the other two device drivers are provided only as an option.
+
+The main.py is the only file that is worth looking at in any detail.  All the others can be considered "black boxes" which do their job without needing to understand how they are doing it.
+
+Broadly, most microcontroller code is always broken down into the following sections:
+
+1. Initialization
+2. Looping over the input / output
+
+Initialization
+
+This can be broken into the following:
+
+Inputs - data that the microcontroller will process
+Outputs - communication to the LCD
+
+Inputs consist of:
+a. Temperature sensor (analog-input on-board)
+b. Sensor inputs for the moisture probes (digital GPIO x9)
+c. Contrast potentiometer value for debugging (analog-input)
+
+Outputs consist of:
+a. Digital nybble lines for displaying a character on the LCD (digital GPIO x4)
+b. LED control for debugging (digital on-board)
+c. LCD Enable (digitial GPIO) to facilitate writing of data to the registers
+d. LCD Register Select (digital GPIO) used for controlling where the LCD stores data sent to it
+
+At startup all of these inputs / outputs are configured and the appropriate library classes are passed the desired configuration.   In most cases the GPIO assignments can be switched around to match a different wiring configuration but any of the on-board sensors need to remain untouched as they are not configurable.  These are:
+
+1. Temperature sensor on analog pin 4
+2. On-board LED mapped to GPIO pin 25
+
+Neither of these pins appear on the regular pin-out diagram but the software maps to the analog / digital ports just like any other input.
+
+For my particular installation, I wanted to have all the moisture sensors on one side of the microcontroller and leave the other side purely for the LCD.   This was to give a little more space on protoboard to focus on each of these sections in isolation of the other.  So the moisture sensors are mapped to GPIO pins 6-14 while most of the LCD control pins are on the other edge of the micrcontroller GPIO pins 16-21.  There is also an analog input pins configured which shows the output of the LCD contrast potentimometer but this is purely optional and was used during development for display on a serial monitor.
+
+The only other significant initialization before the main loop is creating a number of custom characters for the LCD display as these are not by default supported with the existing libraries I was using.  The characters are:
+
+1. A celsius symbol - the LCD has a temperature display and this makes it appear a little more professional
+2. A symbol to show for lack of moisture - "dry"
+3. A symbol to show for acceptable moisture - "wet"
+
+These are simply encoded into a sequence of 8 4-bit nybbles (we only are using 4 data lines) which are then handed to the library for use later.   Additionally, we also initialize the LCD library and show an initial screen.   Due to the way the main loop updates the screen the labels for the temperature and water only ever need to be sent to the LCD once at startup.
+
+Next is the main loop.  Here is where the microcontroller spends all of its time performing the same operations until it is switched off.  These are:
+
+1. Read the current state of the contrast potentiometer (optional) before a short wait
+2. Read the current state of the temperature sensor before a short wait.
+
+These waits are generally considered best practise when reading from analog inputs, they may not be required but I haven't tested thoroughly without them so have opted to leave them in.
+
+Next comes the reading of all the moisture sensors.  This is simply done in a loop by reading the digital input value currently on each of the configured GPIO pins.   Any reading 3.3V down to rougly 1.8V is read as a "high" while anything below 0.8V is "low".   Anything with the range between these two is undetermined and may appear as either high / low.   In practise this tends to show as flickering between the two states.
+
+Now all values have been read the next job is to act on the data.  This boils down to:
+
+1. Output results via the serial debugging interface (optional)
+2. Updating the temperature value on the LCD
+3. Converting the high / low values from the moisture monitor sensors to a representation on the LCD (dry/wet).
+
+For the output to the serial interface this is a built-in function for micropython where a simple "print()" outputs the information and can be viewed from within the IDE (Thonny).
+
+The updating of the LCD for temperature moves the logical cursor (though it is not visible) up to the top-line of the display and outputs the most recent temperature value (followed by the custom celsius symbol we defined earlier).
+
+Similarly, each of the moisture sensors is also updated by moving the cursor back to the bottom line and showing either of the custom symbols we defined for each state next to each other.   An example display is as follows:
+
+
+
