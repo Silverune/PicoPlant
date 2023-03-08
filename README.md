@@ -165,7 +165,7 @@ This is not designed to be an exhaustive line by line talk-through of the micro 
 
 Files:
 
-- main.py - this is the "main" where the micro Python starts executing the code.  All other files are referenced from this one.
+- ```main.py``` - this is the "main" where the micro Python starts executing the code.  All other files are referenced from this one.
 - rdj001.py - device interface for the voltage divider circuit.  Essentially, is a simple wrapper around assigning one of the GPIO pins to act as a digital input.
 - pico_temp.py - the Raspberry Pi Pico has a built in temperature sensor.  This file has routines for reading this value and processing the results
 - lcd_api.py - API class for sending information for display to the LCD
