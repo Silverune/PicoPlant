@@ -245,7 +245,7 @@ Similarly, each of the moisture sensors is also updated by moving the cursor bac
 # Links
 - [Raspberry Pi Pico W Official Circuit Diagram](https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf)
 - [Raspberry Pi Pico W Official Documentation](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html#pinout-and-design-files17)
-- [Raspberry Pi LCD1602 Control](https://www.mbtechworks.com/projects/drive-an-lcd-16x2-display-with-raspberry-pi.html) [and](https://www.electronicwings.com/pic/interfacing-lcd-16x2-in-4-bit-mode-with-pic18f4550-) 
+- [Raspberry Pi LCD1602 Control](https://www.mbtechworks.com/projects/drive-an-lcd-16x2-display-with-raspberry-pi.html)
 
 
 
