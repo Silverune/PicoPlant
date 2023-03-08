@@ -128,7 +128,7 @@ There will also be a number of assumed tools that you have to work on all this. 
 ## Design
 The following is the broad design of the entire project.  Broken down into it’s simplest components:
 
-TODO: power -> protoboard -> sensors -> plants
+![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/top_level.png "Top-Level")
 
 The main electronics work is on the protoboard.  This is the design.
 
