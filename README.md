@@ -238,9 +238,9 @@ Similarly, each of the moisture sensors is also updated by moving the cursor bac
 
 | Photos |
 | ---------- |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M.png "3M Wall Installation") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_circuit.png "3M Circuit") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_LCD.png "3M Display") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M.jpg "3M Wall Installation") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_circuit.jpg "3M Circuit") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_LCD.jpg "3M Display") |
 
 # Links
 - [Raspberry Pi Pico W Official Circuit Diagram](https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf)
