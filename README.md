@@ -6,10 +6,10 @@ This project develops a low cost microcontroller controlled moisture monitoring 
 ## Key Elements
 The following are the primary elements required:
 
-Microcontroller - the device connecting everything together.  Controls the display and receives input from the sensors
-Firmware - control software for the microcontroller which is able to use the inputs and output to the display
-Display - visual interface to show the current status of the sensors
-Sensors - input sensors providing the moisture information
+- Microcontroller - the device connecting everything together.  Controls the display and receives input from the sensors
+- Firmware - control software for the microcontroller which is able to use the inputs and output to the display
+- Display - visual interface to show the current status of the sensors
+- Sensors - input sensors providing the moisture information
 
 Each of these elements can be interchanged and the project itself will still achieve it’s purpose.  For this specific implementation I have used:
 
