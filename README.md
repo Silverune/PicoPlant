@@ -18,8 +18,8 @@ https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.htm
 
 ### Firmware - MicroPython3 / Custom (this repo)
 This can be broken into two main areas:
-1. Operating system - using MicroPython3.  This has a number of advantages and the processing requirements of the project are minimal.  Rapid development and ability to run a serial monitor for debugging makes this a suitable choice.
-2. Application software - this is custom built for the project (supplied in this repository).  It consists of the following main elements: a. device driver for the temperature sensor on the RPIPW b. device driver for the chosen 16x2 display c. device driver for the custom sensor d. custom fonts for use with the display e. device initialisation f. main processing / monitoring loop (“main”)
+- **Operating system** - using MicroPython3.  This has a number of advantages and the processing requirements of the project are minimal.  Rapid development and ability to run a serial monitor for debugging makes this a suitable choice.
+- **Application software** - this is custom built for the project (supplied in this repository).  It consists of the following main elements: a. device driver for the temperature sensor on the RPIPW b. device driver for the chosen 16x2 display c. device driver for the custom sensor d. custom fonts for use with the display e. device initialisation f. main processing / monitoring loop (“main”)
 All the micro python code required is provided on this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
 
 ### Display - LCD1602 
