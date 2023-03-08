@@ -253,7 +253,7 @@ Similarly, each of the moisture sensors is also updated by moving the cursor bac
 | Diagrams |
 | ---------- |
 | ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/circuit.png "Circuit Design") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/LCD1602.png "LCD1602 16x2 LCD") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/LC1602.png "LCD1602 16x2 LCD") |
 | ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/raspberry_pi_pico_w_pinout.png "Raspberry Pi Pico W Official") |
 | ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_a.png "Voltage Divider Practical") |
 | ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_b.png "Voltage Divider Equivalant Circuit") |
