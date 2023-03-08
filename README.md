@@ -225,7 +225,7 @@ The only other significant initialization before the main loop is creating a num
 2. A symbol to show for lack of moisture - "dry"
 3. A symbol to show for acceptable moisture - "wet"
 
-These are simply encoded into a sequence of 5-bit values which are then handed to the library for use later.   Additionally, we also initialize the LCD library and show an initial screen.   Due to the way the main loop (moves cursor to the update location and doesn't refresh whole screen) updates the screen the labels for the temperature and water only ever need to be sent to the LCD once at startup.
+These are simply encoded into a sequence of 8 5-bit values (additional bits of byte are ignored) which are then handed to the library for use later.   Additionally, we also initialize the LCD library and show an initial screen.   Due to the way the main loop (moves cursor to the update location and doesn't refresh whole screen) updates the screen the labels for the temperature and water only ever need to be sent to the LCD once at startup.
 
 Next is the main loop.  Here is where the microcontroller spends all of its time performing the same operations until it is switched off.  These are:
 
