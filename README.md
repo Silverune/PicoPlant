@@ -134,7 +134,7 @@ Each sensor consists of the following simple voltage divider circuit.
 
 Which is simulated here and can be interacted with:
 
-![alt text](https://everycircuit.com/circuit/4709676088033280) "Voltage Divider Simulation Circuit") 
+[Voltage Divider Simulation Circuit](https://everycircuit.com/circuit/4709676088033280) 
 
 This fundamentally boils down to the following equivalant circuit:
 
