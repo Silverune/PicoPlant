@@ -227,4 +227,25 @@ The updating of the LCD for temperature moves the logical cursor (though it is n
 Similarly, each of the moisture sensors is also updated by moving the cursor back to the bottom line and showing either of the custom symbols we defined for each state next to each other.   An example display is as follows:
 
 
+# Design
+| Diagrams |
+| ---------- |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/circuit.png "Circuit Design") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/LCD1602.png "LCD1602 16x2 LCD") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/raspberry_pi_pico_w_pinout.png "Raspberry Pi Pico W Official") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_a.png "Voltage Divider Practical") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_b.png "Voltage Divider Equivalant Circuit") |
+
+| Photos |
+| ---------- |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M.png "3M Wall Installation") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_circuit.png "3M Circuit") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_LCD.png "3M Display") |
+
+# Links
+- [Raspberry Pi Pico W Official Circuit Diagram](https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf)
+- [Raspberry Pi Pico W Official Documentation](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html#pinout-and-design-files17)
+- [Raspberry Pi LCD1602 Control](https://www.mbtechworks.com/projects/drive-an-lcd-16x2-display-with-raspberry-pi.html) [and](https://www.electronicwings.com/pic/interfacing-lcd-16x2-in-4-bit-mode-with-pic18f4550-) 
+
+
 
