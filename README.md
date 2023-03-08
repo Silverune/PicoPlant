@@ -248,6 +248,9 @@ The updating of the LCD for temperature moves the logical cursor (though it is n
 
 Similarly, each of the moisture sensors is also updated by moving the cursor back to the bottom line and showing either of the custom symbols we defined for each state next to each other.   An example display is as follows:
 
+![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/LC1602.png "LCD1602 16x2 LCD")
+
+The top row is showing the temperature in celsius while the bottom consists of each cell showing our custom character for either "wet" (full) or "dry" (hollow square).  It is easy to change this to whatever is desired but this served to be quite clear at a distance when performing the actual watering and monitoring the display.
 
 # Design
 | Diagrams |
