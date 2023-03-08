@@ -130,7 +130,7 @@ The main electronics work is on the protoboard.  This is the design.
 
 Each sensor consists of the following simple voltage divider circuit.
 
-![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/vvoltage_divider_circuit "Voltage Divider Circuit") 
+![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_circuit.png "Voltage Divider Circuit") 
 
 Which is simulated here and can be interacted with:
 
