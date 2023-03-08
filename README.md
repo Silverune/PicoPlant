@@ -166,20 +166,20 @@ This is not designed to be an exhaustive line by line talk-through of the micro 
 Files:
 
 - ```main.py``` - this is the "main" where the micro Python starts executing the code.  All other files are referenced from this one.
-- rdj001.py - device interface for the voltage divider circuit.  Essentially, is a simple wrapper around assigning one of the GPIO pins to act as a digital input.
-- pico_temp.py - the Raspberry Pi Pico has a built in temperature sensor.  This file has routines for reading this value and processing the results
-- lcd_api.py - API class for sending information for display to the LCD
-- gpio_lcd.py - top-level class for interfacing to the LCD.  This is the class used by main.py.  It uses lcd_api.py as part of its implementation
-- common.py - utility routines and constants used by the firmware
+- ```rdj001.py``` - device interface for the voltage divider circuit.  Essentially, is a simple wrapper around assigning one of the GPIO pins to act as a digital input.
+- ```pico_temp.py``` - the Raspberry Pi Pico has a built in temperature sensor.  This file has routines for reading this value and processing the results
+- ```lcd_api.py``` - API class for sending information for display to the LCD
+- ```gpio_lcd.py``` - top-level class for interfacing to the LCD.  This is the class used by main.py.  It uses ```lcd_api.py``` as part of its implementation
+- ```common.py``` - utility routines and constants used by the firmware
 
 Additionally, optional files provided are:
 
-- hw080.py - device interface if using a traditional off-the-shelf water sensor
-- capacitive.py - device interface if using one of the newer capacitive off-the-shelf water sensors
+- ```hw080.py``` - device interface if using a traditional off-the-shelf water sensor
+- ```capacitive.py``` - device interface if using one of the newer capacitive off-the-shelf water sensors
 
 As mentioned previously, the provided implementation uses only the voltage divider circuit so the other two device drivers are provided only as an option.
 
-The main.py is the only file that is worth looking at in any detail.  All the others can be considered "black boxes" which do their job without needing to understand how they are doing it.
+The ```main.py``` is the only file that is worth looking at in any detail.  All the others can be considered "black boxes" which do their job without needing to understand how they are doing it.
 
 Broadly, most microcontroller code is always broken down into the following sections:
 
@@ -219,7 +219,7 @@ The only other significant initialization before the main loop is creating a num
 2. A symbol to show for lack of moisture - "dry"
 3. A symbol to show for acceptable moisture - "wet"
 
-These are simply encoded into a sequence of 8 4-bit nybbles (we only are using 4 data lines) which are then handed to the library for use later.   Additionally, we also initialize the LCD library and show an initial screen.   Due to the way the main loop updates the screen the labels for the temperature and water only ever need to be sent to the LCD once at startup.
+These are simply encoded into a sequence of 5-bit values which are then handed to the library for use later.   Additionally, we also initialize the LCD library and show an initial screen.   Due to the way the main loop (moves cursor to the update location and doesn't refresh whole screen) updates the screen the labels for the temperature and water only ever need to be sent to the LCD once at startup.
 
 Next is the main loop.  Here is where the microcontroller spends all of its time performing the same operations until it is switched off.  These are:
 
