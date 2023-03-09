@@ -75,7 +75,7 @@ def digitalToDebugRepresentation(value):
 def init_lcd():
     global lcd
     lcd.clear()
-    lcd.putstr("Temp: ")
+    lcd.putstr(" Temp: ")
     lcd.move_to(0,1)
     lcd.putstr("Water: ")
 
@@ -102,9 +102,9 @@ while True:
     display = "Contrast: {} Temp: {} Water: {}".format(scale_value(contrast, 0, 65535, 0, 100), temperature, waterSensorsDebug)
     print(display)
 
-    lcd.move_to(6,0)
-    lcd.putstr("          ")
-    lcd.move_to(6,0)
+    lcd.move_to(7,0)
+    lcd.putstr("         ")
+    lcd.move_to(7,0)
     lcd.putstr("{} ".format(temperature))
     lcd.putchar(chr(SYMBOL_CELSIUS))
     lcd.putstr("C")
