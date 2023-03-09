@@ -128,37 +128,50 @@ There will also be a number of assumed tools that you have to work on all this. 
 ## Design
 The following is the broad design of the entire project.  Broken down into it’s simplest components:
 
-![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/top_level.png "Top-Level")
+<p align="center">
+  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/top_level.png" />
+</p>
 
 The main electronics work is on the protoboard.  This is the design.
 
-![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/circuit.png "Circuit Design")
+<p align="center">
+  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/circuit.png" />
+</p>
 
 Each sensor consists of the following simple voltage divider circuit.
 
-![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_circuit.png "Voltage Divider Circuit") 
+<p align="center">
+  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_circuit.png" />
+</p>
 
 Which is simulated here and can be interacted with:
 
-[Voltage Divider Simulation Circuit](https://everycircuit.com/circuit/4709676088033280) 
+<p align="center">
+  <img src="https://everycircuit.com/circuit/4709676088033280" />
+</p>
 
 The linked simulation can be used to prototype differing resistance selections.  The “V” in the simulation maps directly to the GPIO input of the microcontroller.   As can be seen by varying the potentiometer (which simulates the differing dryness levels on a scale of 1 to 10) this brings the voltage into a logical “high” state when above a value of 3 which equates to around 1.8V on the GPIO input.   Short circuit (10) yields 3.3V which is still safe as the GPIO input.   Anything dryer / lower (<3) than this is a  logical “low” (< 1.8V) and triggers the false boolean state on the input.  The undefined area between 1.8v and 0.8v will generally trigger an intermittent transient state which shows up on the LCD as a flickering ON/OFF state for that sensor.
 
 If requiring finer precision in the on / off state the resistor can be changed to something lower (e.g., 10k ohm) which will make the sensor more sensitive.   An alternative is to instead install a potentiometer (100k) which can be used to perfectly tweak the dry/non-dry setting for your particular scenario.   This was over-kill for my requirements but would work without a lot of modification (quite a bit more cost / soldering though).
 This fundamentally boils down to the following equivalant circuit:
 
-![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_b.png "Voltage Divider Equivalant Circuit") 
+<p align="center">
+  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_b.png" />
+</p>
 
 Which in practicality looks like this with the two sensors going into the pot to have the moisture measured
 
-![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_a.png "Voltage Divider Practical")
-
+<p align="center">
+  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_a.png" />
+</p>
 
 The resistance in the wire used for the sensors can generally be ignored.   Over a typical length and the fact that the voltage divider is using quite a sizeable resistance this does not play a significant role in the design.  Typical wire resistance might be in the 8-10 ohm range while the resistors being used are 20k ohm so this constitutes 0.05% difference.
 
 Traditional water sensors work by having different materials in the probe and the conductivity in the water create a battery which is passed across a 1k ohm resistor then fed to the analog display.  This solution uses a larger resistance but from two separate probes and then measures the voltage drop when the 3.3v input source is applied.   The voltage divider resistor on the board regulates what the voltage drop is in relation to the GPIO input.
 
-![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/probes.png "Probes")
+<p align="center">
+  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/probes.png" />
+</p>
 
 To construct the sensors the following process was used.
 
@@ -249,6 +262,10 @@ For the output to the serial interface this is a built-in function for micropyth
 The updating of the LCD for temperature moves the logical cursor (though it is not visible) up to the top-line of the display and outputs the most recent temperature value (followed by the custom celsius symbol we defined earlier).
 
 Similarly, each of the moisture sensors is also updated by moving the cursor back to the bottom line and showing either of the custom symbols we defined for each state next to each other.   An example display is as follows:
+
+<p align="center">
+  <img src="" />
+</p>
 
 ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/LC1602.png "LCD1602 16x2 LCD")
 
