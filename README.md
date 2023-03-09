@@ -267,7 +267,10 @@ The top row is showing the temperature in celsius while the bottom consists of e
 
 | Photos |
 | ---------- |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_plant.jpg "3M Plant Installation") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_interface.jpg "3M Interface") |
 | ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M.jpg "3M Wall Installation") |
+| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_female.jpg "3M Female Connections") |
 | ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_circuit.jpg "3M Circuit") |
 | ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_LCD.jpg "3M Display") |
 
