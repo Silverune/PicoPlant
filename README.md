@@ -50,7 +50,7 @@ These are items I ended up using but depending on your installation requirements
 1. Wooden Mounting board
 2. Metal Brackets / Screws
 3. Electrical wire (dual core) to run out to each sensor as I had a long run which made using regular wire cost-prohibitive and messy.
-4. A female 20-pin I/C mount for connecting the sensors to
+4. A female header 20-pin mount for connecting the sensors to
 5. Electrical connecting adapters to separate the tent peg wires from connecting directly into the protoboard
 6. Tent pegs (2x per sensor) these were connected via wires to the resistors which then form the voltage dividers as inputs to the microcontroller.
 7. Heat shrink solder connectors - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder too without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut.
@@ -58,7 +58,7 @@ These are items I ended up using but depending on your installation requirements
 ### Equipment
 Most of these items are workshop staples.  For completeness I have listed what I have used.
 1. Soldering Iron
-2. Solder 63/37 Rosin Core (thin)
+2. Solder 63/37 Rosin Core (thin - 0.5mm)
 3. Digital Multimeter (safety / debugging)
 4. Bench power-supply
 5. Laptop
