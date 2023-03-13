@@ -147,6 +147,8 @@ The following is the broad design of the entire project.  Broken down into it’
   <img src="https://github.com/Silverune/MMM/blob/main/diagrams/top_level.png" />
 </p>
 
+The circuit board is powered by the 5V supply which is then connected to an external interface which acts as commications point with sensors going out to each of the plants to be monitored.
+
 The main electronics work is on the protoboard.  This is the design.
 
 <p align="center">
