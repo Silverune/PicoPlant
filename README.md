@@ -61,11 +61,13 @@ These are items I ended up using but depending on your installation requirements
 Most of these items are workshop staples.  For completeness I have listed what I have used.
 1. Soldering Iron
 2. Solder 63/37 Rosin Core (thin - 0.5mm)
-3. Digital Multimeter (safety / debugging)
+3. Digital Multimeter (DMM)
 4. Bench power-supply
 5. Laptop
 6. Heat Gun
 7. Bench vise
+8. Wire strippers
+9. Wire cutters
 
 ## Philosophy 
 The general idea behind this project was to base it on a real-life requirement I had which was to monitor the moisture levels of 9 different types of plants in a location out of easy reach (required a ladder each time to check moisture levels with a traditional metre).   Additionally, each of these plants was planted in different hanging baskets sizes with different soils types so a sensor on a random plant would not be indicative of all the plants.  Continuous monitoring was not required as no automated watering was connected so there was no need to run power to it until actually interested in the results.  Due to the distances between the plants and where the control unit would be a large amount of wire would be required.  In my case something like 40m of wire was required in total.
@@ -104,47 +106,49 @@ This is the most subjective varied part of this project and probably the part mo
         * A multistrand dual wire line ("Electrician's wire") is connected to the other input of the electrical connector box
         * The electrical wire is run out to where the plant to be measured is located and is connected via electrical heat solder wrap to a large tent peg which has been inserted into the soil.  The electrical wire is also ancored above the plant to reduce movement during watering
 
-      * Diagnosis is fast and simple.   At all points the circuit can be examined to ensure correct functionality.  There are no IC’s to deal with and each part can be taken apart without having to install the whole setup from the connected plants.
+  * **Debugging** - Diagnosis is fast and simple.   At all points the circuit can be examined to ensure correct functionality.  There are no IC’s to deal with and each part can be taken apart without having to install the whole setup from the connected plants.
 
 In summary, the solution involves a simple cheap off-the shelf microcontroller that is well supported both by the organisation / community.  The language used has low barriers to entry and there exists many third-party libraries making this a fairly safe choice if you get yourself into trouble.   The display is nothing to write home about but completely functional for the job and very low cost - especially if you get one in a bundle.  For simple usage this will be more than enough.   The sensors themselves are the cheapest part of this whole project which is important as this is the part you may have the most of!   The design is simple and dirt cheap.   When you can have faith a 50c sensor will do the job of a $12 off-the-shelf unit (while not taking up an analog input) then this is really where this design comes into it’s own.   Simply add as many units as you like - it’s only the effort of wiring things up that becomes the issue not in any way the cost.  As long as your microcontroller has spare GPIO pins then you can simply keep adding more.
 
 ## Build
 
 ### Parts List
-For completeness I will list all the parts used for my build.   Understandably, less parts could be used (not including “Other - Non-necessary Evils”) but if you are not interested in my particular installation simply ignore these items.   It is better to have a complete reference than to leave these out.
+For completeness I will list all the parts used for my build.   Understandably, less parts could be used (not including “*Other - Non-necessary Evils*”) but if you are not interested in my particular installation simply ignore these items.   It is better to have a complete reference than to leave these out.
 
 The list will be broken into the software and hardware side of things.
 
 ### Software
-- MicroPython3 installation.
-- Download all the files from this repo and copy them over to the device.  I would recommend renaming the “main.py” file to something else to start with as this will be the file that get automatically booted each time the device is reset so if you have problems you are advised to run this from the interpreter (e..g, Thonny) in case there are problems that hang your microcontroller each time.  When finally happy with the firmware you will put the “main.py” file onto the device for the final installation. If you don’t require any of the other sensor types (I didn’t) then you can leave off the “capacitive.py” (if not using Capacitive sensors) and “hw080.py” (if not using regular off-the-shelf resistive sensors.  All other files are required.
+The following software is required for the project:
+
+  * MicroPython installation.
+  * This repository - download all the files from this repo and copy them over to the device.  I would recommend renaming the “```main.py```” file to something else to start with as this will be the file that get automatically booted each time the device is reset so if you have problems you are advised to run this from the interpreter (e..g, Thonny) in case there are problems that hang your microcontroller each time.  
+  
+    When finally happy with the firmware you will put the “```main.py```” file onto the device for the final installation.  If you don’t require any of the other sensor types (I didn’t) then you can leave off the “```capacitive.py```” (if not using Capacitive sensors) and “```hw080.py```” (if not using regular off-the-shelf resistive sensors.  All other files are required.
 
 ### Hardware
 This can be broken down into a few sections:
 
-Electronics components
-- Raspberry Pi Pico (W optional)
-- 10k Ohm potentiometer
-- 9x 20k Ohm resistors (1 / sensor)
-- LCD1602 compatible display
-- 2.1mm power adapter (positive inner core)
-- 5V DC power supply
-- 10 uF capacitor
+### Electronics components
+* Raspberry Pi Pico (W optional)
+* 10k Ohm potentiometer
+* 9x 20k Ohm resistors (1 / sensor)
+* LC1602 compatible display
+* 2.1mm power adapter (positive inner core)
+* 5V DC power supply
+* 10 uF capacitor
 
-Physical Hardware
-- Protoboard large enough to solder all the components. I used a MakerVerse which I found worked perfectly
-- 20x1 female IC socket
-- AWG 22 single core wire
-- 40m insulated 2 core wire (this is very installation dependant - my installation required a lot of wire due to the location.  Most implementers are likely to not require this amount).
-- 18x tent pegs (2 / sensor)
-- 18x solder seal wire connectors (heat shrink solder connectors)
-- 9x Electrical contact connectors
-- Wooden board (larger than your protoboard)
-- Screws to bolt protoboard to installation board
-- Offsets for each screw (my particular installation used both side of the protoboard so needed to have the board offset in the final installation location
-- Cable ties (I required the final installation vertically mounted on a metal strut so these were used.)
-
-There will also be a number of assumed tools that you have to work on all this.  Soldering iron, wire stripper, digital multimeter, computer etc.   It is beyond the scope of this blog to deal with these topics.
+### Physical Hardware
+* Protoboard large enough to solder all the components. I used a MakerVerse which I found worked perfectly
+* 20x1 female IC socket
+* AWG 22 single core wire
+* 40m insulated 2 core wire (this is very installation dependant - my installation required a lot of wire due to the location.  Most implementers are likely to not require this amount).
+* 18x tent pegs (2 / sensor)
+* 18x solder seal wire connectors (heat shrink solder connectors)
+* 9x Electrical contact connectors (2-input)
+* Wooden board (larger than your protoboard)
+* Screws to bolt protoboard to installation board
+* Offsets for each screw (my particular installation used both side of the protoboard so needed to have the board offset in the final installation location
+* Cable ties (I required the final installation vertically mounted on a metal strut so these were used.)
 
 ## Design
 The following is the broad design of the entire project.  Broken down into it’s simplest components:
