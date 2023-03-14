@@ -12,26 +12,28 @@ The following are the primary elements required:
 
 Each of these elements can be interchanged and the project itself will still achieve it’s purpose.  For this specific implementation I have used:
 
-### Microcontroller - Raspberry Pi Pico W (RPIPW)
-<font size="1">
-https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html ($9.90 AUD-$15.05AUD (with soldered headers)</font> https://core-electronics.com.au/raspberry-pi-pico-w-with-soldered-male-headers.html).   This low-cost microcontroller is able to completely suit the requirements for the project with enough general purpose input output (GPIO) pins to satisfy all the current requirements.  It can also provide 5V and 3.3V for external peripherals (display) and if desired can be network connected (“W”).  Networking of the display results is not covered in this documentation as that is outside the scope of the project and is common to all Raspberry Pi Pico W projects
+### Microcontroller - [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html) (RPIPW)
+## <sub><sup>https://core-electronics.com.au/raspberry-pi-pico-w-with-soldered-male-headers.html (with soldered headers)</sup></sub>
+This low-cost microcontroller is able to completely suit the requirements for the project with enough general purpose input output (GPIO) pins to satisfy all the current requirements.  It can also provide 5V and 3.3V for external peripherals (display) and if desired can be network connected (“W”).  Networking of the display results is not covered in this documentation as that is outside the scope of the project and is common to all Raspberry Pi Pico W projects
 
-### Firmware - MicroPython / Custom (this repo)
-https://micropython.org/
+### Firmware - [MicroPython](https://micropython.org/) / Custom (this [repo](https://github.com/Silverune/PicoPlant))
+
 This can be broken into two main areas:
-- **Operating system** - using MicroPython.  This has a number of advantages and the processing requirements of the project are minimal.  Rapid development and ability to run a serial monitor for debugging makes this a suitable choice.
-- **Application software** - this is custom built for the project (supplied in this repository).  It consists of the following main elements:
-  * device driver for the temperature sensor on the RPIPW
-  * device driver for the chosen 16x2 display (LC1602)
-  * device driver for the custom sensors
-  * custom fonts for use with the display
-  * device initialisation
-  * main processing / monitoring loop (“main”)
+1. **Operating system** - using MicroPython.  This has a number of advantages and the processing requirements of the project are minimal.  Rapid development and ability to run a serial monitor for debugging makes this a suitable choice.
+2. **Application software** - this is custom built for the project (supplied in this repository).  It consists of the following main elements:
+
+   * device driver for the temperature sensor on the RPIPW
+   * device driver for the chosen 16x2 display (LC1602)
+   * device driver for the custom sensors
+   * custom fonts for use with the display
+   * device initialisation
+   * main processing / monitoring loop (“main”)
 
 All the micro python code required is provided in this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
 
 ### Display - LC1602 
-https://core-electronics.com.au/iic-lcd1602-gadgeteer-compatible.html ($18.95AUD)  Note: this item is almost always shipped in any Arduino compatible starter kit (e.g., Elegoo kits) so it is recommended to get it as part of a kit if you have even a general interest in electronics. These kits provide excellent value.   This is a common display with a variety of methods of driving the display.  I have opted to not complicate the project with requiring the I2C driver and have instead simply run 4 data lines to it to handle the display.
+## <sub><sup>https://core-electronics.com.au/iic-lcd1602-gadgeteer-compatible.html</sup></sub>
+Note: this item is almost always shipped in any Arduino compatible starter kit (e.g., Elegoo kits) so it is recommended to get it as part of a kit if you have even a general interest in electronics. These kits provide excellent value.   This is a common display with a variety of methods of driving the display.  I have opted to not complicate the project with requiring the I2C driver and have instead simply run 4 data lines to it to handle the display.
 
 ### Sensors - Voltage Dividers
 20K resistor (per input sensor) .  The solution used for this project involved building 9 custom voltage divider circuits which were fed into the GPIO (digital) pin on the RPIPW analog sensors built around using a voltage divider inputting the 3.3V RPIPW back into the GPIO pins as a digital input.   The actual sensors themselves consisted of wires connected to more robust hardware that could be inserted deep into the soil. 
