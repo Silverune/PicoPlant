@@ -154,7 +154,7 @@ This can be broken down into a few sections:
 The following is the broad design of the entire project.  Broken down into it’s simplest components:
 
 <p align="center">
-  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/top_level.png" />
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/top_level.png" />
 </p>
 
 The circuit board is powered by the 5V supply which is then connected to an external interface which acts as commications point with sensors going out to each of the plants to be monitored.
@@ -162,18 +162,18 @@ The circuit board is powered by the 5V supply which is then connected to an exte
 The main electronics work is on the protoboard.  This is the design.
 
 <p align="center">
-  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/circuit.png" />
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/circuit.png" />
 </p>
 
 Each sensor consists of the following simple voltage divider circuit.
 
 <p align="center">
-  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_circuit.png" />
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_circuit.png" />
 </p>
 
 Which is simulated here and can be interacted with:
 
-[Voltage Divider Circuit](https://everycircuit.com/circuit/4709676088033280)
+[Voltage Divider Circuit](https://everycircuit.com/circuit/4855455733776384)
 
 The linked simulation can be used to prototype differing resistance selections.  The “V” in the simulation maps directly to the GPIO input of the microcontroller.   As can be seen by varying the potentiometer (which simulates the differing dryness levels on a scale of 1 to 10) this brings the voltage into a logical “high” state when above a value of 3 which equates to around 1.8V on the GPIO input.   Short circuit (10) yields 3.3V which is still safe as the GPIO input.   Anything dryer / lower (<3) than this is a  logical “low” (< 1.8V) and triggers the false boolean state on the input.  The undefined area between 1.8v and 0.8v will generally trigger an intermittent transient state which shows up on the LCD as a flickering ON/OFF state for that sensor.
 
@@ -181,13 +181,13 @@ If requiring finer precision in the on / off state the resistor can be changed t
 This fundamentally boils down to the following equivalant circuit:
 
 <p align="center">
-  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_b.png" />
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_b.png" />
 </p>
 
 Which in practicality looks like this with the two sensors going into the pot to have the moisture measured
 
 <p align="center">
-  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_a.png" />
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_a.png" />
 </p>
 
 The resistance in the wire used for the sensors can generally be ignored.   Over a typical length and the fact that the voltage divider is using quite a sizeable resistance this does not play a significant role in the design.  Typical wire resistance might be in the 8-10 ohm range while the resistors being used are 20k ohm so this constitutes 0.05% difference.
@@ -195,7 +195,7 @@ The resistance in the wire used for the sensors can generally be ignored.   Over
 Traditional water sensors work by having different materials in the probe and the conductivity in the water create a battery which is passed across a 1k ohm resistor then fed to the analog display.  This solution uses a larger resistance but from two separate probes and then measures the voltage drop when the 3.3v input source is applied.   The voltage divider resistor on the board regulates what the voltage drop is in relation to the GPIO input.
 
 <p align="center">
-  <img src="https://github.com/Silverune/MMM/blob/main/diagrams/probes.png" />
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/probes.png" />
 </p>
 
 To construct the sensors the following process was used.
@@ -292,29 +292,29 @@ Similarly, each of the moisture sensors is also updated by moving the cursor bac
   <img src="" />
 </p>
 
-![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/LC1602.png "LCD1602 16x2 LCD")
+![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/LC1602.png "LCD1602 16x2 LCD")
 
 The top row is showing the temperature in celsius while the bottom consists of each cell showing our custom character for either "wet" (full) or "dry" (hollow square).  It is easy to change this to whatever is desired but this served to be quite clear at a distance when performing the actual watering and monitoring the display.
 
 # Design
 | Diagrams |
 | ---------- |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/circuit.png "Circuit Design") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/LC1602.png "LCD1602 16x2 LCD") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/raspberry_pi_pico_w_pinout.png "Raspberry Pi Pico W Official") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_a.png "Voltage Divider Practical") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_b.png "Voltage Divider Equivalant Circuit") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/voltage_divider_circuit.png "Voltage Divider Circuit") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/diagrams/probes.png "Probes") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/circuit.png "Circuit Design") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/LC1602.png "LC1602 16x2 LCD") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/raspberry_pi_pico_w_pinout.png "Raspberry Pi Pico W Official") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_a.png "Voltage Divider Practical") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_b.png "Voltage Divider Equivalant Circuit") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_circuit.png "Voltage Divider Circuit") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/probes.png "Probes") |
 
 | Photos |
 | ---------- |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_plant.jpg "3M Plant Installation") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_interface.jpg "3M Interface") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M.jpg "3M Wall Installation") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_female.jpg "3M Female Connections") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_circuit.jpg "3M Circuit") |
-| ![alt text](https://github.com/Silverune/MMM/blob/main/photos/3M_LCD.jpg "3M Display") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_plant.jpg "3M Plant Installation") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_interface.jpg "3M Interface") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M.jpg "3M Wall Installation") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_female.jpg "3M Female Connections") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_circuit.jpg "3M Circuit") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_LCD.jpg "3M Display") |
 
 # Links
 - [Raspberry Pi Pico W Official Circuit Diagram](https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf)
