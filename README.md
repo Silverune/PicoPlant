@@ -1,5 +1,4 @@
-# MICROCONTROLLER MOISTURE MONITOR (MMM)
-
+# Pico Plant
 ## Introduction
 This project develops a low cost microcontroller controlled moisture monitoring solution that can be applied to a variety of moisture detection requirements.  The entire project should cost similar to the price of a commercial single moisture probe with plenty of scope for future enhancement.  Some knowledge of interfacing to a microcontroller and the ability to solder is required.
 
