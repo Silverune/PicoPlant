@@ -20,12 +20,12 @@ https://micropython.org/
 This can be broken into two main areas:
 - **Operating system** - using MicroPython.  This has a number of advantages and the processing requirements of the project are minimal.  Rapid development and ability to run a serial monitor for debugging makes this a suitable choice.
 - **Application software** - this is custom built for the project (supplied in this repository).  It consists of the following main elements:
-* device driver for the temperature sensor on the RPIPW
-* device driver for the chosen 16x2 display (LC1602)
-* device driver for the custom sensors
-* custom fonts for use with the display
-* device initialisation
-* main processing / monitoring loop (“main”)
+  * device driver for the temperature sensor on the RPIPW
+  * device driver for the chosen 16x2 display (LC1602)
+  * device driver for the custom sensors
+  * custom fonts for use with the display
+  * device initialisation
+  * main processing / monitoring loop (“main”)
 
 All the micro python code required is provided in this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
 
