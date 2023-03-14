@@ -16,7 +16,7 @@ Each of these elements can be interchanged and the project itself will still ach
 ## <sub><sup>https://core-electronics.com.au/raspberry-pi-pico-w-with-soldered-male-headers.html (with soldered headers)</sup></sub>
 This low-cost microcontroller is able to completely suit the requirements for the project with enough general purpose input output (GPIO) pins to satisfy all the current requirements.  It can also provide 5V and 3.3V for external peripherals (display) and if desired can be network connected (“W”).  Networking of the display results is not covered in this documentation as that is outside the scope of the project and is common to all Raspberry Pi Pico W projects
 
-### Firmware - [MicroPython](https://micropython.org/) / [Repo](https://github.com/Silverune/PicoPlant))
+### Firmware - [MicroPython](https://micropython.org/) / [Repo](https://github.com/Silverune/PicoPlant)
 
 This can be broken into two main areas:
 1. **Operating system** - using MicroPython.  This has a number of advantages and the processing requirements of the project are minimal.  Rapid development and ability to run a serial monitor for debugging makes this a suitable choice.
