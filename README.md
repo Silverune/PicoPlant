@@ -6,6 +6,16 @@
 ## Introduction
 This project develops a low cost microcontroller controlled moisture monitoring solution that can be applied to a variety of moisture detection requirements.  The entire project should cost similar to the price of a commercial single moisture probe with plenty of scope for future enhancement.  Some knowledge of interfacing to a microcontroller and the ability to solder is required.
 
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/top_level.png" />
+</p>
+
+Which is controlled via the following circuit using a Raspberry Pi Pico W and LCD1602
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/circuit.png" />
+</p>
+
 ## Key Elements
 The following are the primary elements required:
 
