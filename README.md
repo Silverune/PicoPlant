@@ -83,7 +83,7 @@ Most of these items are workshop staples.  For completeness I have listed what I
 7. Bench Vice https://amzn.to/3JFZg00
 8. Wire Strippers https://amzn.to/3laT0Ei
 9. Wire Cutters https://amzn.to/3TkRwnA
-10. Digital Micropscope https://amzn.to/3Tl6cCX (optional for double-checking soldering / debugging)
+10. Digital Microscope https://amzn.to/3Tl6cCX (optional for double-checking soldering / debugging)
 
 ## Philosophy 
 The general idea behind this project was to base it on a real-life requirement I had which was to monitor the moisture levels of 9 different types of plants in a location out of easy reach (required a ladder each time to check moisture levels with a traditional metre).   Additionally, each of these plants was planted in different hanging baskets sizes with different soils types so a sensor on a random plant would not be indicative of all the plants.  Continuous monitoring was not required as no automated watering was connected so there was no need to run power to it until actually interested in the results.  Due to the distances between the plants and where the control unit would be a large amount of wire would be required.  In my case something like 40m of wire was required in total.
