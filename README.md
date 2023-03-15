@@ -27,7 +27,7 @@ This can be broken into two main areas:
 2. **Application software** - this is custom built for the project (supplied in this repository).  It consists of the following main elements:
 
    * device driver for the temperature sensor on the RPIPW
-   * device driver for the chosen 16x2 display (LC1602)
+   * device driver for the chosen 16x2 display (LCD1602)
    * device driver for the custom sensors
    * custom fonts for use with the display
    * device initialisation
@@ -35,11 +35,12 @@ This can be broken into two main areas:
 
 All the micro python code required is provided in this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
 
-### Display - LC1602 
-## <sub><sup>https://core-electronics.com.au/iic-lcd1602-gadgeteer-compatible.html</sup></sub>
+### Display - LCD1602 
+## <sub><sup>https://amzn.to/409E4oM</sup></sub>
 Note: this item is almost always shipped in any Arduino compatible starter kit (e.g., Elegoo kits) so it is recommended to get it as part of a kit if you have even a general interest in electronics. These kits provide excellent value.   This is a common display with a variety of methods of driving the display.  I have opted to not complicate the project with requiring the I2C driver and have instead simply run 4 data lines to it to handle the display.
 
 ### Sensors - Voltage Dividers
+## <sub><sup>https://amzn.to/3mUGQzN</sup></sub>
 20K resistor (per input sensor) .  The solution used for this project involved building 9 custom voltage divider circuits which were fed into the GPIO (digital) pin on the RPIPW analog sensors built around using a voltage divider inputting the 3.3V RPIPW back into the GPIO pins as a digital input.   The actual sensors themselves consisted of wires connected to more robust hardware that could be inserted deep into the soil. 
 
 ### Other - Necessary Evils
@@ -67,7 +68,7 @@ Most of these items are workshop staples.  For completeness I have listed what I
 2. Solder 63/37 Rosin Core (thin - 0.5mm) https://amzn.to/3likx6H
 3. Digital Multimeter (DMM) https://amzn.to/3ZOJaGW
 4. Bench power-supply https://amzn.to/3yEkOUt
-5. Computer - Mac / PC etc.  I used a Raspberry Pi https://amzn.to/4060Ei2
+5. Computer - Mac / PC etc.  I used a Raspberry Pi 4 https://amzn.to/4060Ei2
 6. Heat Gun https://amzn.to/3JhXyR9
 7. Bench vise https://amzn.to/3JFZg00
 8. Wire strippers https://amzn.to/3laT0Ei
