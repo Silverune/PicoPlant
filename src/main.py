@@ -10,7 +10,7 @@ from time import sleep_ms
 from gpio_lcd import GpioLcd
 
 from common import scale_value
-from rdj001 import RDJ001
+from vds001 import VDS001
 from pico_temp import PicoTemp
 
 # lcd custom characters (limit 8)
@@ -36,17 +36,17 @@ pinContrast = ADC(Pin(contrastPin))
 # max of 9 supported by display
 waterSensors = [
     
-    RDJ001(6),
-    RDJ001(7),
-    RDJ001(8),
-    RDJ001(9),
+    VDS001(6),
+    VDS001(7),
+    VDS001(8),
+    VDS001(9),
     
-    RDJ001(10),
-    RDJ001(11),
-    RDJ001(12),
-    RDJ001(13),
+    VDS001(10),
+    VDS001(11),
+    VDS001(12),
+    VDS001(13),
     
-    RDJ001(14),
+    VDS001(14),
 ]
 
 temp = PicoTemp()
