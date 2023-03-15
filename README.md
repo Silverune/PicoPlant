@@ -17,7 +17,7 @@ The following are the primary elements required:
 Each of these elements can be interchanged and the project itself will still achieve it’s purpose.  For this specific implementation I have used:
 
 ### Microcontroller - [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html) (RPIPW)
-## <sub><sup>https://core-electronics.com.au/raspberry-pi-pico-w-with-soldered-male-headers.html (with soldered headers)</sup></sub>
+## <sub><sup>https://amzn.to/3ZNeLJn (with soldered headers)</sup></sub>
 This low-cost microcontroller is able to completely suit the requirements for the project with enough general purpose input output (GPIO) pins to satisfy all the current requirements.  It can also provide 5V and 3.3V for external peripherals (display) and if desired can be network connected (“W”).  Networking of the display results is not covered in this documentation as that is outside the scope of the project and is common to all Raspberry Pi Pico W projects
 
 ### Firmware - [MicroPython](https://micropython.org/) / [Repo](https://github.com/Silverune/PicoPlant)
