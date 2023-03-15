@@ -218,10 +218,10 @@ This is not designed to be an exhaustive line by line talk-through of the micro 
 Files:
 
 - ```main.py``` - this is the "main" where the micro Python starts executing the code.  All other files are referenced from this one.
-- ```rdj001.py``` - device interface for the voltage divider circuit.  Essentially, is a simple wrapper around assigning one of the GPIO pins to act as a digital input.
+- ```vds001.py``` - device interface for the voltage divider circuit.  Essentially, is a simple wrapper around assigning one of the GPIO pins to act as a digital input.
 - ```pico_temp.py``` - the Raspberry Pi Pico has a built in temperature sensor.  This file has routines for reading this value and processing the results
-- ```lcd_api.py``` - API class for sending information for display to the LCD
-- ```gpio_lcd.py``` - top-level class for interfacing to the LCD.  This is the class used by main.py.  It uses ```lcd_api.py``` as part of its implementation
+- ```lcd_api.py``` - API class for sending information for display to the LCD.  Original is from https://github.com/dhylands/python_lcd
+- ```gpio_lcd.py``` - top-level class for interfacing to the LCD.  This is the class used by main.py.  It uses ```lcd_api.py``` as part of its implementation.  Original is from https://github.com/dhylands/python_lcd
 - ```common.py``` - utility routines and constants used by the firmware
 
 Additionally, optional files provided are:
