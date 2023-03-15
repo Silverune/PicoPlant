@@ -120,7 +120,7 @@ This is the most subjective and varied part of this project and probably the par
         * Circuit wire to the resistor where the voltage divider is located.   This is fed by a separate wire that is connected to a female header socket.
         * A single core wire connecting the female connector input (male) to an electrical connector box.
         * A multistrand dual wire line ("Electrician's wire") is connected to the other input of the electrical connector box
-        * The electrical wire is run out to where the plant to be measured is located and is connected via electrical heat solder wrap to a large tent peg which has been inserted into the soil.  The electrical wire is also ancored above the plant to reduce movement during watering
+        * The electrical wire is run out to where the plant to be measured is located and is connected via electrical heat solder wrap to two large tent pegs which have been inserted into the soil.  The electrical wire is also anchored above the plant to reduce movement during watering.
 
   * **Debugging** - Diagnosis is fast and simple.   At all points the circuit can be examined to ensure correct functionality.  There are no IC’s to deal with and each part can be taken apart without having to install the whole setup from the connected plants.
 
