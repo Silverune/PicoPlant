@@ -37,7 +37,7 @@ All the micro python code required is provided in this repository.  If using an 
 
 ### Display - LCD1602 
 ## <sub><sup>https://amzn.to/409E4oM</sup></sub>
-Note: this item is almost always shipped in any Arduino compatible starter kit (e.g., Elegoo kits) so it is recommended to get it as part of a kit if you have even a general interest in electronics. These kits provide excellent value.   This is a common display with a variety of methods of driving the display.  I have opted to not complicate the project with requiring the I2C driver and have instead simply run 4 data lines to it to handle the display.
+Note: this item is almost always shipped in any Arduino compatible starter kit (e.g., [Elegoo kits](https://amzn.to/3LpCuem)) so it is recommended to get it as part of a kit if you have even a general interest in electronics. These kits provide excellent value.   This is a common display with a variety of methods of driving the display.  I have opted to not complicate the project with requiring the I2C driver and have instead simply run 4 data lines to it to handle the display.
 
 ### Sensors - Voltage Dividers
 ## <sub><sup>https://amzn.to/3mUGQzN</sup></sub>
