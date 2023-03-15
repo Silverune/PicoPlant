@@ -80,9 +80,9 @@ Most of these items are workshop staples.  For completeness I have listed what I
 4. Bench power-supply https://amzn.to/3yEkOUt
 5. Computer - Mac / PC etc.  I used a Raspberry Pi 4 https://amzn.to/4060Ei2
 6. Heat Gun https://amzn.to/3JhXyR9
-7. Bench vise https://amzn.to/3JFZg00
-8. Wire strippers https://amzn.to/3laT0Ei
-9. Wire cutters https://amzn.to/3TkRwnA
+7. Bench Vice https://amzn.to/3JFZg00
+8. Wire Strippers https://amzn.to/3laT0Ei
+9. Wire Cutters https://amzn.to/3TkRwnA
 10. Digital Micropscope https://amzn.to/3Tl6cCX (optional for double-checking soldering / debugging)
 
 ## Philosophy 
