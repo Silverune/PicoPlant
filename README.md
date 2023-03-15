@@ -43,7 +43,7 @@ This can be broken into two main areas:
    * device initialisation
    * main processing / monitoring loop (“main”)
 
-All the micro python code required is provided in this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
+All the micro python code required is provided in this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor) I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
 
 ### Display - LCD1602 
 ## <sub><sup>https://amzn.to/409E4oM</sup></sub>
