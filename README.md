@@ -117,7 +117,7 @@ This is the most subjective and varied part of this project and probably the par
   * **Super cheap** - the design is two wires and a resistor.  It’s almost impossible to make a cheaper unit.   No matter how many sensors you add there is simply no way to compete with this.  On the protoboard it can be simplified to take up as little as 2 rows!
  
       * **Robust** - Electronics often requires lots of wires, power supplies etc. that are not compatible with the dirt, Sun and water requirements of plants.   Additionally, when doing actual watering it can be quite a physical process and move the plant and soil around.   So the design needs to deal with this reality while still feeding the information back for processing by the microcontroller.   I used levels of robustness to achieve this and took specific steps to decouple the sensors to the board via an optional interface.   These levels are starting with the GPIO pins of the RPIPW:
-        * Circuit wire to the resistor where the voltage divider is located.   This is fed my a separate wire that is connected to a female header socket.
+        * Circuit wire to the resistor where the voltage divider is located.   This is fed by a separate wire that is connected to a female header socket.
         * A single core wire connecting the female connector input (male) to an electrical connector box.
         * A multistrand dual wire line ("Electrician's wire") is connected to the other input of the electrical connector box
         * The electrical wire is run out to where the plant to be measured is located and is connected via electrical heat solder wrap to a large tent peg which has been inserted into the soil.  The electrical wire is also ancored above the plant to reduce movement during watering
