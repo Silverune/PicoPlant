@@ -148,7 +148,7 @@ This can be broken down into a few sections:
 * Raspberry Pi Pico (W optional)
 * 10k Ohm potentiometer
 * 9x 20k Ohm resistors (1 / sensor)
-* LC1602 compatible display
+* LCD1602 compatible display
 * 2.1mm power adapter (positive inner core)
 * 5V DC power supply
 * 10 uF capacitor
@@ -316,7 +316,7 @@ The top row is showing the temperature in celsius while the bottom consists of e
 | Diagrams |
 | ---------- |
 | ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/circuit.png "Circuit Design") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/LC1602.png "LC1602 16x2 LCD") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/LC1602.png "LCD1602 16x2 LCD") |
 | ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/raspberry_pi_pico_w_pinout.png "Raspberry Pi Pico W Official") |
 | ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_a.png "Voltage Divider Practical") |
 | ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_b.png "Voltage Divider Equivalant Circuit") |
