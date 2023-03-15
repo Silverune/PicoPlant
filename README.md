@@ -139,7 +139,7 @@ The following software is required for the project:
   * MicroPython installation.
   * This repository - download all the files from this repo and copy them over to the device.  I would recommend renaming the “```main.py```” file to something else to start with as this will be the file that get automatically booted each time the device is reset so if you have problems you are advised to run this from the interpreter (e..g, Thonny) in case there are problems that hang your microcontroller each time.  
   
-    When finally happy with the firmware you will put the “```main.py```” file onto the device for the final installation.  If you don’t require any of the other sensor types (I didn’t) then you can leave off the “```capacitive.py```” (if not using Capacitive sensors) and “```hw080.py```” (if not using regular off-the-shelf resistive sensors.  All other files are required.
+    When finally happy with the firmware you will put the “```main.py```” file onto the device for the final installation.  If you don’t require any of the other sensor types (I didn’t) then you can leave off the “```capacitive.py```” (if not using Capacitive sensors) and “```hw080.py```” (if not using regular off-the-shelf resistive sensors).  All other files are required.
 
 ### Hardware
 This can be broken down into a few sections:
