@@ -44,34 +44,34 @@ Note: this item is almost always shipped in any Arduino compatible starter kit (
 
 ### Other - Necessary Evils
 While not  key elements the following are also required for the project.
-1. 5V power supply (the RPIPW requires 3.3V but the display is a 5V device so needs this extra voltage)
-2. 2.1mm jack for connecting the power to the board
+1. 5V power supply (the RPIPW requires 3.3V but the display is a 5V device so needs this extra voltage) https://amzn.to/3lhiHTq
+2. 2.1mm jack for connecting the power to the board https://amzn.to/3YWlJdS
 3. Protoboard for soldering everything together https://amzn.to/3JfQLax / https://core-electronics.com.au/protoboard-63-row.html
-4. Wire (I used single core) to hook everything up
-5. 10K potentiometer for brightness control of the LCD display.
-6. 10uF capacitor across the power rails - good practice!   Avoid spikes due to dodgy power supplies and takes out some noise.   Sure you can get away without it by if you have one I definitely think you should clean things up.
+4. Wire (I used solid core) to hook everything up https://amzn.to/3yDnwJN
+5. 10K potentiometer for brightness control of the LCD display. https://amzn.to/3Tl3z43
+6. 10uF capacitor across the power rails https://amzn.to/3mJhnJq - good practice!   Avoid spikes due to dodgy power supplies and takes out some noise.   Sure you can get away without it by if you have one I definitely think you should clean things up.
 
 ### Other - Non-necessary Evils
 These are items I ended up using but depending on your installation requirements may not be required.
-1. Wooden Mounting board
-2. Metal Brackets / Screws
-3. Electrical wire (dual core) to run out to each sensor as I had a long run which made using regular wire cost-prohibitive and messy.
-4. A female header 20-pin mount for connecting the sensors to
-5. Electrical connecting adapters to separate the tent peg wires from connecting directly into the protoboard
-6. Tent pegs (2x per sensor) these were connected via wires to the resistors which then form the voltage dividers as inputs to the microcontroller.
-7. Heat shrink solder connectors - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder too without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut.
+1. Wooden Mounting board - any offcut will do that's large enough to hold the mounting board
+2. Metal Brackets / Screws - assumed you have this staple
+3. Electrical wire (dual core) to run out to each sensor as I had a long run which made using regular wire cost-prohibitive and messy. https://amzn.to/3JhbVFd
+4. A female header 20-pin mount for connecting the sensors to https://amzn.to/3lhkbNu
+5. Electrical connecting adapters to separate the tent peg wires from connecting directly into the protoboard https://amzn.to/3ZObedI
+6. Tent pegs (2x per sensor) these were connected via wires to the resistors which then form the voltage dividers as inputs to the microcontroller. https://amzn.to/3FphK2s
+7. Heat shrink solder connectors - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder too without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut. https://amzn.to/3YJnQRT
 
 ### Equipment
 Most of these items are workshop staples.  For completeness I have listed what I have used.
-1. Soldering Iron
-2. Solder 63/37 Rosin Core (thin - 0.5mm)
-3. Digital Multimeter (DMM)
-4. Bench power-supply
-5. Laptop
-6. Heat Gun
-7. Bench vise
-8. Wire strippers
-9. Wire cutters
+1. Soldering Iron https://amzn.to/406pVZd
+2. Solder 63/37 Rosin Core (thin - 0.5mm) https://amzn.to/3likx6H
+3. Digital Multimeter (DMM) https://amzn.to/3ZOJaGW
+4. Bench power-supply https://amzn.to/3yEkOUt
+5. Computer - Mac / PC etc.  I used a Raspberry Pi https://amzn.to/4060Ei2
+6. Heat Gun https://amzn.to/3JhXyR9
+7. Bench vise https://amzn.to/3JFZg00
+8. Wire strippers https://amzn.to/3laT0Ei
+9. Wire cutters https://amzn.to/3TkRwnA
 
 ## Philosophy 
 The general idea behind this project was to base it on a real-life requirement I had which was to monitor the moisture levels of 9 different types of plants in a location out of easy reach (required a ladder each time to check moisture levels with a traditional metre).   Additionally, each of these plants was planted in different hanging baskets sizes with different soils types so a sensor on a random plant would not be indicative of all the plants.  Continuous monitoring was not required as no automated watering was connected so there was no need to run power to it until actually interested in the results.  Due to the distances between the plants and where the control unit would be a large amount of wire would be required.  In my case something like 40m of wire was required in total.
