@@ -28,7 +28,7 @@ Each of these elements can be interchanged and the project itself will still ach
 
 ### Microcontroller - [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html) (RPIPW)
 ## <sub><sup>https://amzn.to/3ZNeLJn (with soldered headers)</sup></sub>
-This low-cost microcontroller is able to completely suit the requirements for the project with enough general purpose input output (GPIO) pins to satisfy all the current requirements.  It can also provide 5V and 3.3V for external peripherals (display) and if desired can be network connected (“W”).  Networking of the display results is not covered in this documentation as that is outside the scope of the project and is common to all Raspberry Pi Pico W projects
+This low-cost microcontroller is able to completely suit the requirements for the project with enough general purpose input output (GPIO) pins to satisfy all the current requirements (pun intended).  It can also provide 5V and 3.3V for external peripherals (display) and if desired can be network connected (“W”).  Networking of the display results is not covered in this documentation as that is outside the scope of the project and is common to all Raspberry Pi Pico W projects
 
 ### Firmware - [MicroPython](https://micropython.org/) / [Repo](https://github.com/Silverune/PicoPlant)
 
