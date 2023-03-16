@@ -1,11 +1,10 @@
-# RDJ001 Water Sensor
+# VDS001 Water Sensor
 #
-# Based on simple continuity indicator
-#
+
 from machine import Pin, ADC
 from common import scale_value
 
-class RDJ001:
+class VDS001:
 
     DIGITAL = 0
 

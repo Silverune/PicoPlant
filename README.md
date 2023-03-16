@@ -6,6 +6,16 @@
 ## Introduction
 This project develops a low cost microcontroller controlled moisture monitoring solution that can be applied to a variety of moisture detection requirements.  The entire project should cost similar to the price of a commercial single moisture probe with plenty of scope for future enhancement.  Some knowledge of interfacing to a microcontroller and the ability to solder is required.
 
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/top_level.png" />
+</p>
+
+Which is controlled via the following circuit using a Raspberry Pi Pico W and LCD1602
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/circuit.png" />
+</p>
+
 ## Key Elements
 The following are the primary elements required:
 
@@ -17,7 +27,7 @@ The following are the primary elements required:
 Each of these elements can be interchanged and the project itself will still achieve it’s purpose.  For this specific implementation I have used:
 
 ### Microcontroller - [Raspberry Pi Pico W](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html) (RPIPW)
-## <sub><sup>https://core-electronics.com.au/raspberry-pi-pico-w-with-soldered-male-headers.html (with soldered headers)</sup></sub>
+## <sub><sup>https://amzn.to/3ZNeLJn (with soldered headers)</sup></sub>
 This low-cost microcontroller is able to completely suit the requirements for the project with enough general purpose input output (GPIO) pins to satisfy all the current requirements.  It can also provide 5V and 3.3V for external peripherals (display) and if desired can be network connected (“W”).  Networking of the display results is not covered in this documentation as that is outside the scope of the project and is common to all Raspberry Pi Pico W projects
 
 ### Firmware - [MicroPython](https://micropython.org/) / [Repo](https://github.com/Silverune/PicoPlant)
@@ -27,51 +37,53 @@ This can be broken into two main areas:
 2. **Application software** - this is custom built for the project (supplied in this repository).  It consists of the following main elements:
 
    * device driver for the temperature sensor on the RPIPW
-   * device driver for the chosen 16x2 display (LC1602)
+   * device driver for the chosen 16x2 display (LCD1602)
    * device driver for the custom sensors
    * custom fonts for use with the display
    * device initialisation
    * main processing / monitoring loop (“main”)
 
-All the micro python code required is provided in this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
+All the micro python code required is provided in this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor) I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
 
-### Display - LC1602 
-## <sub><sup>https://core-electronics.com.au/iic-lcd1602-gadgeteer-compatible.html</sup></sub>
-Note: this item is almost always shipped in any Arduino compatible starter kit (e.g., Elegoo kits) so it is recommended to get it as part of a kit if you have even a general interest in electronics. These kits provide excellent value.   This is a common display with a variety of methods of driving the display.  I have opted to not complicate the project with requiring the I2C driver and have instead simply run 4 data lines to it to handle the display.
+### Display - LCD1602 
+## <sub><sup>https://amzn.to/409E4oM</sup></sub>
+Note: this item is almost always shipped in any Arduino compatible starter kit (e.g., [Elegoo kits](https://amzn.to/3LpCuem)) so it is recommended to get it as part of a kit if you have even a general interest in electronics. These kits provide excellent value.   This is a common display with a variety of methods of driving the display.  I have opted to not complicate the project with requiring the I2C driver and have instead simply run 4 data lines to it to handle the display.
 
 ### Sensors - Voltage Dividers
+## <sub><sup>https://amzn.to/3mUGQzN</sup></sub>
 20K resistor (per input sensor) .  The solution used for this project involved building 9 custom voltage divider circuits which were fed into the GPIO (digital) pin on the RPIPW analog sensors built around using a voltage divider inputting the 3.3V RPIPW back into the GPIO pins as a digital input.   The actual sensors themselves consisted of wires connected to more robust hardware that could be inserted deep into the soil. 
 
 ### Other - Necessary Evils
 While not  key elements the following are also required for the project.
-1. 5V power supply (the RPIPW requires 3.3V but the display is a 5V device so needs this extra voltage)
-2. 2.1mm jack for connecting the power to the board
-3. Protoboard for soldering everything together
-4. Wire (I used single core) to hook everything up
-5. 10K potentiometer for brightness control of the LCD display.
-6. 10uF capacitor across the power rails - good practice!   Avoid spikes due to dodgy power supplies and takes out some noise.   Sure you can get away without it by if you have one I definitely think you should clean things up.
+1. 5V power supply (the RPIPW requires 3.3V but the display is a 5V device so needs this extra voltage) https://amzn.to/3lhiHTq
+2. 2.1mm jack for connecting the power to the board https://amzn.to/3YWlJdS
+3. Protoboard for soldering everything together https://amzn.to/3JfQLax / https://core-electronics.com.au/protoboard-63-row.html
+4. Wire (I used solid core) to hook everything up https://amzn.to/3yDnwJN
+5. 10K potentiometer for brightness control of the LCD display. https://amzn.to/3Tl3z43
+6. 10uF capacitor across the power rails https://amzn.to/3mJhnJq - good practice!   Avoid spikes due to dodgy power supplies and takes out some noise.   Sure you can get away without it by if you have one I definitely think you should clean things up.
 
 ### Other - Non-necessary Evils
 These are items I ended up using but depending on your installation requirements may not be required.
-1. Wooden Mounting board
-2. Metal Brackets / Screws
-3. Electrical wire (dual core) to run out to each sensor as I had a long run which made using regular wire cost-prohibitive and messy.
-4. A female header 20-pin mount for connecting the sensors to
-5. Electrical connecting adapters to separate the tent peg wires from connecting directly into the protoboard
-6. Tent pegs (2x per sensor) these were connected via wires to the resistors which then form the voltage dividers as inputs to the microcontroller.
-7. Heat shrink solder connectors - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder too without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut.
+1. Wooden Mounting board - any offcut will do that's large enough to hold the mounting board
+2. Metal Brackets / Screws - assumed you have this staple
+3. Electrical wire (dual core) to run out to each sensor as I had a long run which made using regular wire cost-prohibitive and messy. https://amzn.to/3JhbVFd
+4. A female header 20-pin mount for connecting the sensors to https://amzn.to/3lhkbNu
+5. Electrical connecting adapters to separate the tent peg wires from connecting directly into the protoboard https://amzn.to/3ZObedI
+6. Tent pegs (2x per sensor) these were connected via wires to the resistors which then form the voltage dividers as inputs to the microcontroller. https://amzn.to/3FphK2s
+7. Heat shrink solder connectors - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder too without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut. https://amzn.to/3YJnQRT
 
 ### Equipment
 Most of these items are workshop staples.  For completeness I have listed what I have used.
-1. Soldering Iron
-2. Solder 63/37 Rosin Core (thin - 0.5mm)
-3. Digital Multimeter (DMM)
-4. Bench power-supply
-5. Laptop
-6. Heat Gun
-7. Bench vise
-8. Wire strippers
-9. Wire cutters
+1. Soldering Iron https://amzn.to/406pVZd
+2. Solder 63/37 Rosin Core (thin - 0.5mm) https://amzn.to/3likx6H
+3. Digital Multimeter (DMM) https://amzn.to/3ZOJaGW
+4. Bench power-supply https://amzn.to/3yEkOUt
+5. Computer - Mac / PC etc.  I used a Raspberry Pi 4 https://amzn.to/4060Ei2
+6. Heat Gun https://amzn.to/3JhXyR9
+7. Bench Vice https://amzn.to/3JFZg00
+8. Wire Strippers https://amzn.to/3laT0Ei
+9. Wire Cutters https://amzn.to/3TkRwnA
+10. Digital Microscope https://amzn.to/3Tl6cCX (optional for double-checking soldering / debugging)
 
 ## Philosophy 
 The general idea behind this project was to base it on a real-life requirement I had which was to monitor the moisture levels of 9 different types of plants in a location out of easy reach (required a ladder each time to check moisture levels with a traditional metre).   Additionally, each of these plants was planted in different hanging baskets sizes with different soils types so a sensor on a random plant would not be indicative of all the plants.  Continuous monitoring was not required as no automated watering was connected so there was no need to run power to it until actually interested in the results.  Due to the distances between the plants and where the control unit would be a large amount of wire would be required.  In my case something like 40m of wire was required in total.
@@ -89,28 +101,28 @@ The firmware using MicroPython was purely a choice based on simplicity.   There 
 As there are only a boolean display required for each of the input sensors (water / non-water) and a single temperature display there was no requirement for a high resolution screen and a simple 16x2 display would suffice.  In fact, even though the display supports I2C it was also considered overkill to bother using it in this manner as the screen was simply showing the sensor status on a single “page”.   I did create a few custom character fonts to make the display look slightly more professional than simply using the default 8-bit ASCII selection.  These were a celsius symbol as well as full and empty water indicators.
 
 ### Sensors
-This is the most subjective varied part of this project and probably the part most people will be attracted to about this project.   The reasons for this is that there currently doesn’t exist very many reasonably priced robust moisture monitoring components on the market and those that do exist and are reasonable are overkill for a non-continuous monitoring requirement.   I’ll break down in simple terms my views on each and how I came to reaching my decision to simply “reinvent the wheel”.
+This is the most subjective and varied part of this project and probably the part most people will be attracted to about this project.   The reasons for this is that there currently doesn’t exist very many reasonably priced robust moisture monitoring components on the market and those that do exist and are reasonable are overkill for a non-continuous monitoring requirement.   I’ll break down in simple terms my views on each and how I came to reaching my decision to simply “reinvent the wheel”.
 
-1. **Water Level Sensor Detection Unit** (e..g, https://www.amazon.com.au/Sensor-Module-Detection-Surface-Arduino/dp/B01N058HS6)   These units function completely fine in a limited use case.   They still cost roughly $4 in bulk so hooking up a whole greenhouse might start to add up and they cannot have power applied continually or they oxidise and become unusable after a few months.  In some cases they provide an analog output which (as mentioned previously) is not required or desirable. 
-2. **Capacitive Water Sensor Detection Unit** (e.g., https://www.amazon.com.au/Electronic-Capacitive-moisture-Corrosion-Resistant/dp/B08VDD2HRR)  These are seen as superior to the regular detection sensors mainly due to their ability to resist corrosion as they do not have exposed copper wiring.  However, they come at a higher cost (over 3x the cost) and if there is no requirement to be continually powered then this is not an issue.  Additionally, they appear to be difficult to source the better quality units with an ability not to corrode.   They do generally have the advantage that they come with an interface unit allowing you to configure a digital input but this is yet another control board.  For a single sensor probably not an issue but in my use case where I needed 9x this would have unacceptable.
-3. **Traditional analog design**  There are no off-the-shelf versions of this that are suitable for adding to the project though it is trivial to build one.  Many of the older electronics kits like the Radio Shack / Dick Smith home hobbyist solutions involve a simple LN2022 style NPN (PNP in Radio Shack’s case) transistor amplifying a weak signal through the signal and lighting up an LED to indicate water level or continuity.  Strangely, even though these are simple solutions they are still over-engineered for what we need.   It would mean each sensor requires a transistor and one (or two) resistors.  Not a huge cost but also not required.  Completely suitable as an educational aid but that’s not why we are looking at these designs.
+1. **Water Level Sensor Detection Unit** (e..g, https://amzn.to/3yEdCYt / https://amzn.to/3yEdRCR)   These units function completely fine in a limited use case.   They still cost roughly $4 in bulk so hooking up a whole greenhouse might start to add up and they cannot have power applied continually or they oxidise and become unusable after a few months.  In some cases they provide an analog output which (as mentioned previously) is not required or desirable. 
+2. **Capacitive Water Sensor Detection Unit** (e.g., https://amzn.to/3TfFPhE)  These are seen as superior to the regular detection sensors mainly due to their ability to resist corrosion as they do not have exposed copper wiring.  However, they come at a higher cost (over 3x the cost) and if there is no requirement to be continually powered then this is not an issue.  Additionally, they appear to be difficult to source the better quality units with an ability not to corrode.
+3. **Traditional analog design**  There are no off-the-shelf versions of this that are suitable for adding to the project though it is trivial to build one.  Many of the older electronics kits like the Radio Shack / Dick Smith home hobbyist solutions involve a simple LN2022 style NPN (PNP in Radio Shack’s case) transistor amplifying a weak signal through the amplifier and lighting up an LED to indicate water level or continuity.  Strangely, even though these are simple solutions they are still over-engineered for what we need.   It would mean each sensor requires a transistor and one (or two) resistors.  Not a huge cost but also not required.  Completely suitable as an educational aid but that’s not why we are looking at these designs.
 4. **Voltage divider coupling**  This is the design I have gone with.   To explain why I'll dive into the problem:
 
     * We have a number of knowns that other solutions don’t - let’s use that to our advantage. The main one being that we are trying to turn an analog value into a digital one.   That’s a whole rabbit hole in itself but in our case it boils down to simply matching the resistance in the sensors when there is enough moisture between the probes with the positive signal the microcontroller accepts.   To break down each:  
     
       * **Resistance in the sensor** - there are many ways to look at this problem.   The two off-the-shelf solutions look at the change in voltage (resistance) or capacitive build-up. In either case the conductivity in the circuit changes the transducer to report a different value.   I took the approach of looking at resistance changes caused by moisture changes.  Simply put, pure water doesn’t even conduct electricity, its the impurities in water that allow current to pass.  However, soil happens to have a lot of impurities so you will often get a surprisingly strong reading in what we would think of as mostly dry .   Therefore the approach is to simply to use an external reference to work out what is considered “dry” or “needs water”.   I used a trational water probe with an analog scale from 1 to 10.   On this scale anything 3 or below is in the red (dry).  So I simply sampled a number of plants I had at that level and used a digital multimeter to measure the resistance in our sensors in the soil and note that as a reference point.   Despite a wide range of soils I found values in the 20k to 50k ohm to be the sweet spot.  Once dry the resistance quickly shoots up into the mega ohm range.   This resistance is important in the next step.
 
-      * **Analog Input** - most microcontrollers have a very limited number of analog inputs (and we don’t need them anyway).  The goal then becomes converting the sensor reading to an on or off (boolean) value for the software.   This is where a data-sheet can come in handy but these are still a guide.   You can simply test your microcontroller with a potentiometer or variable power supply and work out what it finds is a logical on and off and how that maps to the voltage.  To use a specific example of the RPIPIW the data-sheet lists the logical “high” as 1.6V (it’s a 3.3V device so essentially half the voltage) all the way up to 3.3V.  There is an undefined dead zone that any values below 0.8V count as “low” and if you had a short-circuit it would read the source voltage of 3,3V   This is important information for the design - we need to match the minimum high to the threshold maximum resistance that we want to trigger on.   e.g., if we found that 20k ohm resistance led to us deciding that the plant has finally needed water then we map this 20k ohm to a voltage that will at minimum remain high.  Once the resistance goes beyond this we are dropping into the undefined / low state which is when we need to water the plant.   The solution, a voltage divider.   We simply couple the input sensor to the input resistance that we deem too low and everything falls into place.  If the sensors in the soil are just watered and the conductivity is high at most it can only ever be 3.3V (the supply voltage) but if it resists above our value the voltage on the GPIO pin drops below 1.6V and the sensor should read low (in reality once in the undefined state it flickers around which is actually desired as it shows that this reading is on the threshold - a non-binary reading on a binary sensor!).  So if wet enough the GPIO reads high and once beyond what we consider acceptable it reads low - perfect!
+      * **Analog Input** - most microcontrollers have a very limited number of analog inputs (and we don’t need them anyway).  The goal then becomes converting the sensor reading to an on or off (boolean) value for the software.   This is where a data-sheet can come in handy but these are still a guide.   You can simply test your microcontroller with a potentiometer or variable power supply and work out what it finds is a logical on and off and how that maps to the voltage.  To use a specific example of the RPIPW the data-sheet lists the logical “high” as 1.6V (it’s a 3.3V device so essentially half the voltage) all the way up to 3.3V.  There is an undefined dead zone that any values below 0.8V count as “low” and if you had a short-circuit it would read the source voltage of 3.3V.  This is important information for the design - we need to match the minimum high to the threshold maximum resistance that we want to trigger on.   e.g., if we found that 20k ohm resistance led to us deciding that the plant has finally needed water then we map this 20k ohm to a voltage that will at minimum remain high.  Once the resistance goes beyond this we are dropping into the undefined / low state which is when we need to water the plant.   The solution, a voltage divider.   We simply couple the input sensor to the input resistance that we deem too low and everything falls into place.  If the sensors in the soil are just watered and the conductivity is high at most it can only ever be 3.3V (the supply voltage) but if it resists above our value the voltage on the GPIO pin drops below 1.6V and the sensor should read low (in reality once in the undefined state it flickers around which is actually desired as it shows that this reading is on the threshold - a non-binary reading on a binary sensor!).  So if wet enough the GPIO reads high and once beyond what we consider acceptable it reads low - perfect!
 
   * **Super cheap** - the design is two wires and a resistor.  It’s almost impossible to make a cheaper unit.   No matter how many sensors you add there is simply no way to compete with this.  On the protoboard it can be simplified to take up as little as 2 rows!
  
       * **Robust** - Electronics often requires lots of wires, power supplies etc. that are not compatible with the dirt, Sun and water requirements of plants.   Additionally, when doing actual watering it can be quite a physical process and move the plant and soil around.   So the design needs to deal with this reality while still feeding the information back for processing by the microcontroller.   I used levels of robustness to achieve this and took specific steps to decouple the sensors to the board via an optional interface.   These levels are starting with the GPIO pins of the RPIPW:
-        * Circuit wire to the resistor where the voltage divider is located.   This is fed my a separate wire that is connected to a female header socket.
+        * Circuit wire to the resistor where the voltage divider is located.   This is fed by a separate wire that is connected to a female header socket.
         * A single core wire connecting the female connector input (male) to an electrical connector box.
         * A multistrand dual wire line ("Electrician's wire") is connected to the other input of the electrical connector box
-        * The electrical wire is run out to where the plant to be measured is located and is connected via electrical heat solder wrap to a large tent peg which has been inserted into the soil.  The electrical wire is also ancored above the plant to reduce movement during watering
+        * The electrical wire is run out to where the plant to be measured is located and is connected via electrical heat solder wrap to two large tent pegs which have been inserted into the soil.  The electrical wire is also anchored above the plant to reduce movement during watering.
 
-  * **Debugging** - Diagnosis is fast and simple.   At all points the circuit can be examined to ensure correct functionality.  There are no IC’s to deal with and each part can be taken apart without having to install the whole setup from the connected plants.
+  * **Debugging** - Diagnosis is fast and simple.   At all points the circuit can be examined to ensure correct functionality.  Other than the microcontroller and display there are no IC’s to deal with and each part can be taken apart without having to uninstall / remove the whole setup from the connected plants.
 
 In summary, the solution involves a simple cheap off-the shelf microcontroller that is well supported both by the organisation / community.  The language used has low barriers to entry and there exists many third-party libraries making this a fairly safe choice if you get yourself into trouble.   The display is nothing to write home about but completely functional for the job and very low cost - especially if you get one in a bundle.  For simple usage this will be more than enough.   The sensors themselves are the cheapest part of this whole project which is important as this is the part you may have the most of!   The design is simple and dirt cheap.   When you can have faith a 50c sensor will do the job of a $12 off-the-shelf unit (while not taking up an analog input) then this is really where this design comes into it’s own.   Simply add as many units as you like - it’s only the effort of wiring things up that becomes the issue not in any way the cost.  As long as your microcontroller has spare GPIO pins then you can simply keep adding more.
 
@@ -127,7 +139,7 @@ The following software is required for the project:
   * MicroPython installation.
   * This repository - download all the files from this repo and copy them over to the device.  I would recommend renaming the “```main.py```” file to something else to start with as this will be the file that get automatically booted each time the device is reset so if you have problems you are advised to run this from the interpreter (e..g, Thonny) in case there are problems that hang your microcontroller each time.  
   
-    When finally happy with the firmware you will put the “```main.py```” file onto the device for the final installation.  If you don’t require any of the other sensor types (I didn’t) then you can leave off the “```capacitive.py```” (if not using Capacitive sensors) and “```hw080.py```” (if not using regular off-the-shelf resistive sensors.  All other files are required.
+    When finally happy with the firmware you will put the “```main.py```” file onto the device for the final installation.  If you don’t require any of the other sensor types (I didn’t) then you can leave off the “```capacitive.py```” (if not using Capacitive sensors) and “```hw080.py```” (if not using regular off-the-shelf resistive sensors).  All other files are required.
 
 ### Hardware
 This can be broken down into a few sections:
@@ -136,7 +148,7 @@ This can be broken down into a few sections:
 * Raspberry Pi Pico (W optional)
 * 10k Ohm potentiometer
 * 9x 20k Ohm resistors (1 / sensor)
-* LC1602 compatible display
+* LCD1602 compatible display
 * 2.1mm power adapter (positive inner core)
 * 5V DC power supply
 * 10 uF capacitor
@@ -216,10 +228,10 @@ This is not designed to be an exhaustive line by line talk-through of the micro 
 Files:
 
 - ```main.py``` - this is the "main" where the micro Python starts executing the code.  All other files are referenced from this one.
-- ```rdj001.py``` - device interface for the voltage divider circuit.  Essentially, is a simple wrapper around assigning one of the GPIO pins to act as a digital input.
+- ```vds001.py``` - device interface for the voltage divider circuit.  Essentially, is a simple wrapper around assigning one of the GPIO pins to act as a digital input.
 - ```pico_temp.py``` - the Raspberry Pi Pico has a built in temperature sensor.  This file has routines for reading this value and processing the results
-- ```lcd_api.py``` - API class for sending information for display to the LCD
-- ```gpio_lcd.py``` - top-level class for interfacing to the LCD.  This is the class used by main.py.  It uses ```lcd_api.py``` as part of its implementation
+- ```lcd_api.py``` - API class for sending information for display to the LCD.  Original is from https://github.com/dhylands/python_lcd
+- ```gpio_lcd.py``` - top-level class for interfacing to the LCD.  This is the class used by main.py.  It uses ```lcd_api.py``` as part of its implementation.  Original is from https://github.com/dhylands/python_lcd
 - ```common.py``` - utility routines and constants used by the firmware
 
 Additionally, optional files provided are:
@@ -304,7 +316,7 @@ The top row is showing the temperature in celsius while the bottom consists of e
 | Diagrams |
 | ---------- |
 | ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/circuit.png "Circuit Design") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/LC1602.png "LC1602 16x2 LCD") |
+| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/LC1602.png "LCD1602 16x2 LCD") |
 | ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/raspberry_pi_pico_w_pinout.png "Raspberry Pi Pico W Official") |
 | ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_a.png "Voltage Divider Practical") |
 | ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_b.png "Voltage Divider Equivalant Circuit") |
@@ -324,6 +336,7 @@ The top row is showing the temperature in celsius while the bottom consists of e
 - [Raspberry Pi Pico W Official Circuit Diagram](https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf)
 - [Raspberry Pi Pico W Official Documentation](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html#pinout-and-design-files17)
 - [Raspberry Pi LCD1602 Control](https://www.mbtechworks.com/projects/drive-an-lcd-16x2-display-with-raspberry-pi.html)
+- [Thonny IDE](https://thonny.org/)
 
 
 
