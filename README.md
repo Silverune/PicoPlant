@@ -70,7 +70,7 @@ These are items I ended up using but depending on your installation requirements
 4. A female header 20-pin mount for connecting the sensors to https://amzn.to/3lhkbNu
 5. Electrical connecting adapters to separate the tent peg wires from connecting directly into the protoboard https://amzn.to/3ZObedI
 6. Tent pegs (2x per sensor) these were connected via wires to the resistors which then form the voltage dividers as inputs to the microcontroller. https://amzn.to/3FphK2s
-7. Heat shrink solder connectors - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder too without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut. https://amzn.to/3YJnQRT
+7. Heat shrink solder connectors - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder to without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut. https://amzn.to/3YJnQRT
 
 ### Equipment
 Most of these items are workshop staples.  For completeness I have listed what I have used.
