@@ -32,7 +32,7 @@ Each of these elements can be interchanged and the project itself will still ach
 ## <sub><sup>https://amzn.to/3ZNeLJn (with soldered headers)</sup></sub>
 This low-cost microcontroller is able to completely suit the requirements for the project with enough general purpose input output (GPIO) pins to satisfy all the current requirements (pun intended).  It can also provide 5V and 3.3V for external peripherals (display) and if desired can be network connected (“W”).  Networking of the display results is not covered in this documentation as that is outside the scope of the project and is common to all Raspberry Pi Pico W projects
 
-### Firmware - [MicroPython](https://micropython.org/) / [Repo](https://github.com/Silverune/PicoPlant)
+### Firmware - [MicroPython](https://micropython.org/) / [PicoPlant Repo](https://github.com/Silverune/PicoPlant)
 
 This can be broken into two main areas:
 1. **Operating system** - using MicroPython.  This has a number of advantages and the processing requirements of the project are minimal.  Rapid development and ability to run a serial monitor for debugging makes this a suitable choice.
@@ -53,7 +53,7 @@ Note: this item is almost always shipped in any Arduino compatible starter kit (
 
 ### Sensors - Voltage Dividers
 ## <sub><sup>https://amzn.to/3mUGQzN</sup></sub>
-20K resistor (per input sensor) .  The solution used for this project involved building 9 custom voltage divider circuits which were fed into the GPIO (digital) pin on the RPIPW analog sensors built around using a voltage divider inputting the 3.3V RPIPW back into the GPIO pins as a digital input.   The actual sensors themselves consisted of wires connected to more robust hardware that could be inserted deep into the soil. 
+20K ohm resistor (one per input sensor) .  The solution used for this project involved building 9 custom voltage divider circuits which were fed into the GPIO (digital) pin on the RPIPW analog sensors built around using a voltage divider inputting the 3.3V RPIPW back into the GPIO pins as a digital input.   The actual sensors themselves consisted of wires connected to more robust hardware that could be inserted deep into the soil. 
 
 ### Other - Necessary Evils
 While not  key elements the following are also required for the project.
