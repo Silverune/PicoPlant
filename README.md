@@ -53,7 +53,7 @@ Note: this item is almost always shipped in any Arduino compatible starter kit (
 
 ### Sensors - Voltage Dividers
 ## <sub><sup>https://amzn.to/3mUGQzN</sup></sub>
-20K ohm resistor (one per input sensor) .  The solution used for this project involved building 9 custom voltage divider circuits which were fed into the GPIO (digital) pin on the RPIPW analog sensors built around using a voltage divider inputting the 3.3V RPIPW back into the GPIO pins as a digital input.   The actual sensors themselves consisted of wires connected to more robust hardware that could be inserted deep into the soil. 
+20K ohm resistor (one per input sensor) .  The solution used for this project involved building 9 custom voltage divider circuits which were fed into the GPIO (digital) pins on the RPIPW built around using a voltage divider inputting the 3.3V RPIPW back into the GPIO pins as a input.   The actual sensors themselves consisted of wires connected to more robust hardware that could be inserted deep into the soil. 
 
 ### Other - Necessary Evils
 While not  key elements the following are also required for the project.
@@ -75,8 +75,8 @@ These are items I ended up using but depending on your installation requirements
 7. Heat shrink solder connectors - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder to without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut. https://amzn.to/3YJnQRT
 
 ### Equipment
-Most of these items are workshop staples.  For completeness I have listed what I have used.
-1. Soldering Iron https://amzn.to/406pVZd
+Most of these items are workshop staples.  For completeness I have listed what I used.
+1. Soldering Iron / Station (Composite Tip) https://amzn.to/406pVZd
 2. Solder 63/37 Rosin Core (thin - 0.5mm) https://amzn.to/3likx6H
 3. Digital Multimeter (DMM) https://amzn.to/3ZOJaGW
 4. Bench power-supply https://amzn.to/3yEkOUt
