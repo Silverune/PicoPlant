@@ -16,7 +16,7 @@ Which is controlled via the following circuit using a Raspberry Pi Pico W and LC
   <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/circuit.png" />
 </p>
 
-**NOTE** I have added affiliate links to most of the items listed in this blog.  As such, any purchases made through those links results in a small commision which assists in developping the project further.
+**NOTE** I have added affiliate links to most of the items listed in this blog.  As such, any purchases made through those links results in a small commision which assists in developing the project further.
 
 ## Key Elements
 The following are the primary elements required:
