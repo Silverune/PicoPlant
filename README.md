@@ -45,7 +45,7 @@ This can be broken into two main areas:
    * device initialisation
    * main processing / monitoring loop (“main”)
 
-All the micro python code required is provided in this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor) I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
+All the MicroPython code required is provided in this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor) I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
 
 ### Display - LCD1602 
 ## <sub><sup>https://amzn.to/409E4oM</sup></sub>
@@ -225,11 +225,11 @@ Congratulations - you have your first sensor.   Now do this again for however ma
 
 Firmware
 
-This is not designed to be an exhaustive line by line talk-through of the micro Python code.  It is designed to give an oversight of what is being done, how it is being done and any non-obvious sections of the code that might be helped by additional explanation.
+This is not designed to be an exhaustive line by line talk-through of the MicroPython code.  It is designed to give an oversight of what is being done, how it is being done and any non-obvious sections of the code that might be helped by additional explanation.
 
 Files:
 
-- ```main.py``` - this is the "main" where the micro Python starts executing the code.  All other files are referenced from this one.
+- ```main.py``` - this is the "main" where the MicroPython starts executing the code.  All other files are referenced from this one.
 - ```vds001.py``` - device interface for the voltage divider circuit.  Essentially, is a simple wrapper around assigning one of the GPIO pins to act as a digital input.
 - ```pico_temp.py``` - the Raspberry Pi Pico has a built in temperature sensor.  This file has routines for reading this value and processing the results
 - ```lcd_api.py``` - API class for sending information for display to the LCD.  Original is from https://github.com/dhylands/python_lcd
