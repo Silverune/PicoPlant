@@ -147,13 +147,13 @@ The following software is required for the project:
 This can be broken down into a few sections:
 
 ### Electronics components
-* Raspberry Pi Pico (W optional)
-* 10k Ohm potentiometer
-* 9x 20k Ohm resistors (1 / sensor)
-* LCD1602 compatible display
-* 2.1mm power adapter (positive inner core)
-* 5V DC power supply
-* 10 uF capacitor
+* Raspberry Pi Pico (W optional) https://amzn.to/3ZNeLJn
+* 10k Ohm potentiometer https://amzn.to/3Tl3z43
+* 9x 20k Ohm resistors (1 / sensor) https://amzn.to/3mUGQzN
+* LCD1602 compatible display https://amzn.to/409E4oM
+* 2.1mm power adapter (positive inner core) https://amzn.to/3YWlJdS
+* 5V DC power supply https://amzn.to/3lhiHTq
+* 10 uF capacitor https://amzn.to/3mJhnJq
 
 ### Physical Hardware
 * Protoboard large enough to solder all the components. I used a MakerVerse which I found worked perfectly
