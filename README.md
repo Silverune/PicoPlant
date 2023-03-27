@@ -262,20 +262,20 @@ This can be broken into the following:
 * **Outputs** - communication to the LCD
 
 Inputs consist of:
-* Temperature sensor (analog-input on-board)
-* Sensor inputs for the moisture probes (digital GPIO x9)
-* Contrast potentiometer value for debugging (analog-input)
+* **Temperature sensor** - analog-input on-board
+* **Sensor inputs for the moisture probes** - digital GPIO (x9)
+* **Contrast potentiometer** - value for debugging (analog-input)
 
 Outputs consist of:
-* Digital nybble lines for displaying a character on the LCD (digital GPIO x4)
-* LED control for debugging (digital on-board)
-* LCD Enable (digitial GPIO) to facilitate writing of data to the registers
-* LCD Register Select (digital GPIO) used for controlling where the LCD stores data sent to it
+* **Digital nybble lines** - for displaying a character on the LCD (digital GPIO x4)
+* **LED Control** - for debugging (digital on-board)
+* **LCD Enable** - (digitial GPIO) to facilitate writing of data to the registers
+* **LCD Register** - select (digital GPIO) used for controlling where the LCD stores data sent to it
 
 At startup all of these inputs / outputs are configured and the appropriate library classes are passed the desired configuration.   In most cases the GPIO assignments can be switched around to match a different wiring configuration but any of the on-board sensors need to remain untouched as they are not configurable.  These are:
 
-* Temperature sensor on analog pin 4
-* On-board LED mapped to GPIO pin 25
+* **Temperature** - sensor on analog pin 4
+* **On-board LED** - mapped to GPIO pin 25
 
 Neither of these pins appear on the regular pin-out diagram but the software maps to the analog / digital ports just like any other input.
 
@@ -283,9 +283,9 @@ For my particular installation, I wanted to have all the moisture sensors on one
 
 The only other significant initialization before the main loop is creating a number of custom characters for the LCD display as these are not by default supported with the existing libraries I was using.  The characters are:
 
-* A celsius symbol - the LCD has a temperature display and this makes it appear a little more professional
-* A symbol to show for lack of moisture - "dry"
-* A symbol to show for acceptable moisture - "wet"
+* **Celsius symbol** - the LCD has a temperature display and this makes it appear a little more professional
+* **Symbol to show for lack of moisture** - "dry"
+* **symbol to show for acceptable moisture** - "wet"
 
 These are simply encoded into a sequence of 8 5-bit values (additional bits of byte are ignored) which are then handed to the library for use later.   Additionally, we also initialize the LCD library and show an initial screen.   Due to the way the main loop (moves cursor to the update location and doesn't refresh whole screen) updates the screen the labels for the temperature and water only ever need to be sent to the LCD once at startup.
 
