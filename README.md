@@ -258,8 +258,8 @@ Broadly, most microcontroller code is always broken down into the following sect
 
 This can be broken into the following:
 
-* Inputs - data that the microcontroller will process
-* Outputs - communication to the LCD
+* **Inputs** - data that the microcontroller will process
+* **Outputs** - communication to the LCD
 
 Inputs consist of:
 * Temperature sensor (analog-input on-board)
