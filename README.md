@@ -251,31 +251,31 @@ The ```main.py``` is the only file that is worth looking at in any detail.  All 
 
 Broadly, most microcontroller code is always broken down into the following sections:
 
-1. Initialization
-2. Looping over the input / output
+* Initialization
+* Looping over the input / output
 
-Initialization
+### Initialization
 
 This can be broken into the following:
 
-Inputs - data that the microcontroller will process
-Outputs - communication to the LCD
+* Inputs - data that the microcontroller will process
+* Outputs - communication to the LCD
 
 Inputs consist of:
-a. Temperature sensor (analog-input on-board)
-b. Sensor inputs for the moisture probes (digital GPIO x9)
-c. Contrast potentiometer value for debugging (analog-input)
+* Temperature sensor (analog-input on-board)
+* Sensor inputs for the moisture probes (digital GPIO x9)
+* Contrast potentiometer value for debugging (analog-input)
 
 Outputs consist of:
-a. Digital nybble lines for displaying a character on the LCD (digital GPIO x4)
-b. LED control for debugging (digital on-board)
-c. LCD Enable (digitial GPIO) to facilitate writing of data to the registers
-d. LCD Register Select (digital GPIO) used for controlling where the LCD stores data sent to it
+* Digital nybble lines for displaying a character on the LCD (digital GPIO x4)
+* LED control for debugging (digital on-board)
+* LCD Enable (digitial GPIO) to facilitate writing of data to the registers
+* LCD Register Select (digital GPIO) used for controlling where the LCD stores data sent to it
 
 At startup all of these inputs / outputs are configured and the appropriate library classes are passed the desired configuration.   In most cases the GPIO assignments can be switched around to match a different wiring configuration but any of the on-board sensors need to remain untouched as they are not configurable.  These are:
 
-1. Temperature sensor on analog pin 4
-2. On-board LED mapped to GPIO pin 25
+* Temperature sensor on analog pin 4
+* On-board LED mapped to GPIO pin 25
 
 Neither of these pins appear on the regular pin-out diagram but the software maps to the analog / digital ports just like any other input.
 
@@ -283,16 +283,16 @@ For my particular installation, I wanted to have all the moisture sensors on one
 
 The only other significant initialization before the main loop is creating a number of custom characters for the LCD display as these are not by default supported with the existing libraries I was using.  The characters are:
 
-1. A celsius symbol - the LCD has a temperature display and this makes it appear a little more professional
-2. A symbol to show for lack of moisture - "dry"
-3. A symbol to show for acceptable moisture - "wet"
+* A celsius symbol - the LCD has a temperature display and this makes it appear a little more professional
+* A symbol to show for lack of moisture - "dry"
+* A symbol to show for acceptable moisture - "wet"
 
 These are simply encoded into a sequence of 8 5-bit values (additional bits of byte are ignored) which are then handed to the library for use later.   Additionally, we also initialize the LCD library and show an initial screen.   Due to the way the main loop (moves cursor to the update location and doesn't refresh whole screen) updates the screen the labels for the temperature and water only ever need to be sent to the LCD once at startup.
 
 Next is the main loop.  Here is where the microcontroller spends all of its time performing the same operations until it is switched off.  These are:
 
-1. Read the current state of the contrast potentiometer (optional) before a short wait
-2. Read the current state of the temperature sensor before a short wait.
+* Read the current state of the contrast potentiometer (optional) before a short wait
+* Read the current state of the temperature sensor before a short wait.
 
 These waits are generally considered best practise when reading from analog inputs, they may not be required but I haven't tested thoroughly without them so have opted to leave them in.
 
@@ -300,9 +300,9 @@ Next comes the reading of all the moisture sensors.  This is simply done in a lo
 
 Now all values have been read the next job is to act on the data.  This boils down to:
 
-1. Output results via the serial debugging interface (optional)
-2. Updating the temperature value on the LCD
-3. Converting the high / low values from the moisture monitor sensors to a representation on the LCD (dry/wet).
+* Output results via the serial debugging interface (optional)
+* Updating the temperature value on the LCD
+* Converting the high / low values from the moisture monitor sensors to a representation on the LCD (dry/wet).
 
 For the output to the serial interface this is a built-in function for micropython where a simple "print()" outputs the information and can be viewed from within the IDE (Thonny).
 
