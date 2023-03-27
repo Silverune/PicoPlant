@@ -223,9 +223,13 @@ To construct the sensors the following process was used.
 3. Strip the wires and put each into a solder seal wire connector.  Use a heat gun to seal the tent peg to the wire (x2) 
 Congratulations - you have your first sensor.   Now do this again for however many you require - 9 in my case!
 
-Firmware
+## Firmware
 
-This is not designed to be an exhaustive line by line talk-through of the MicroPython code.  It is designed to give an oversight of what is being done, how it is being done and any non-obvious sections of the code that might be helped by additional explanation.
+### Operating System
+Before you will be able to use any of the files in this repository, the first thing you will need to do is install the MicroPython bootloader onto the RSPPIW.  Follow these instructions to get started: https://www.raspberrypi.com/documentation/microcontrollers/micropython.html
+
+### Application Code
+The code in this repository will need to then by copied across to control the system.  This is not designed to be an exhaustive line by line talk-through of the MicroPython code.  It is designed to give an oversight of what is being done, how it is being done and any non-obvious sections of the code that might be helped by additional explanation.
 
 Files:
 
