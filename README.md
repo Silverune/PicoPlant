@@ -45,47 +45,47 @@ This can be broken into two main areas:
    * device initialisation
    * main processing / monitoring loop (“main”)
 
-All the MicroPython code required is provided in this repository.  If using an alternative sensor than the one in specified (e,g., an off-the-shelf capacitive or resistive sensor) I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
+All the MicroPython code required is provided in this repository.  If using an alternative sensor than the one I've specified (e.g., an off-the-shelf capacitive or resistive sensor) I have also provided a couple of device drivers I created for those as well but I did not end up using either of those as they are expensive and offer no advantage in my use-case.
 
 ### Display - LCD1602 
 ## <sub><sup>https://amzn.to/409E4oM</sup></sub>
-Note: this item is almost always shipped in any Arduino compatible starter kit (e.g., [Elegoo kits](https://amzn.to/3LpCuem)) so it is recommended to get it as part of a kit if you have even a general interest in electronics. These kits provide excellent value.   This is a common display with a variety of methods of driving the display.  I have opted to not complicate the project with requiring the I2C driver and have instead used it in 4-bit mode to handle the display.
+Note: this item is almost always shipped in any Arduino compatible starter kit (e.g., [Elegoo kits](https://amzn.to/3LpCuem)) so it is recommended to get it as part of a kit if you have even a general interest in electronics. These kits provide excellent value.   This is a common display with a variety of methods of driving the display.  I have opted to not complicate the project with requiring the I2C driver and have instead used it in 4-bit mode to handle the display.  Using it with only 4-bits has no functional downside as the update rate of the screen is only a number of hertz and it reduces the need for additional data lines / soldering.
 
 ### Sensors - Voltage Dividers
 ## <sub><sup>https://amzn.to/3mUGQzN</sup></sub>
 20K ohm resistor (one per input sensor) .  The solution used for this project involved building 9 custom voltage divider circuits which were fed into the GPIO (digital) pins on the RPIPW built around using a voltage divider inputting the 3.3V RPIPW back into the GPIO pins as a input.   The actual sensors themselves consisted of wires connected to more robust hardware that could be inserted deep into the soil. 
 
 ### Other - Necessary Evils
-While not  key elements the following are also required for the project.
-1. 5V power supply (the RPIPW requires 3.3V but the display is a 5V device so needs this extra voltage) https://amzn.to/3lhiHTq
-2. 2.1mm jack for connecting the power to the board https://amzn.to/3YWlJdS
-3. Protoboard for soldering everything together https://amzn.to/3JfQLax / https://core-electronics.com.au/protoboard-63-row.html
-4. Wire (I used solid core) to hook everything up https://amzn.to/3yDnwJN
-5. 10K potentiometer for brightness control of the LCD display. https://amzn.to/3Tl3z43
-6. 10uF capacitor across the power rails https://amzn.to/3mJhnJq - good practice!   Avoid spikes due to dodgy power supplies and takes out some noise.   Sure you can get away without it by if you have one I definitely think you should clean things up.
+While not key elements, the following are also required for the project:
+1. **5V DC Power Supply** (the RPIPW requires 3.3V but the display is a 5V device so needs this extra voltage) https://amzn.to/3lhiHTq  Alternatively, I could have used a boost converter such as the TPS61200, LTC3525, MAX1724/MAX756 or MCP1640. All of these ICs are specifically designed to provide voltage boosting capabilities within the scope of the project.  However, as I already had a 5V source this was not required.  If only powering the RPIPW from the 3.3V USB source this may be of interest (while adding slightly to the complexity).
+2. **2.1mm Female Power Jack** for connecting the power to the board https://amzn.to/3YWlJdS
+3. **Protoboard** for soldering everything together https://amzn.to/3JfQLax / https://core-electronics.com.au/protoboard-63-row.html
+4. **Hookup Wire** (I used solid core) to hook everything up https://amzn.to/3yDnwJN
+5. **10K Potentiometer** for brightness control of the LCD display. https://amzn.to/3Tl3z43
+6. **10uF Capacitor** across the power rails https://amzn.to/3mJhnJq  Avoid spikes due to dodgy power supplies and takes out some noise.   Sure you can get away without it by if you have one I definitely think you should clean things up.
 
 ### Other - Non-necessary Evils
-These are items I ended up using but depending on your installation requirements may not be required.
-1. Wooden Mounting board - any offcut will do that's large enough to hold the mounting board
-2. Metal Brackets / Screws - assumed you have this staple
-3. Electrical wire (dual core) to run out to each sensor as I had a long run which made using regular wire cost-prohibitive and messy. https://amzn.to/3JhbVFd
-4. A female header 20-pin mount for connecting the sensors to https://amzn.to/3lhkbNu
-5. Electrical connecting adapters to separate the tent peg wires from connecting directly into the protoboard https://amzn.to/3ZObedI
-6. Tent pegs (2x per sensor) these were connected via wires to the resistors which then form the voltage dividers as inputs to the microcontroller. https://amzn.to/3FphK2s
-7. Heat shrink solder connectors - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder to without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut. https://amzn.to/3YJnQRT
+These are items I ended up using but depending on your installation requirements may not be required:
+1. **Wooden Mounting Board** - any offcut will do that's large enough to hold the mounting board
+2. **Metal Brackets / Screws** - assumed you have this staple
+3. **Electrical Wire** (dual core) to run out to each sensor as I had a long run which made using regular wire cost-prohibitive and messy. https://amzn.to/3JhbVFd
+4. **A Female Header 20-pin Mount** for connecting the sensors to https://amzn.to/3lhkbNu
+5. **Electrical Connecting Adapters** to separate the tent peg wires from connecting directly into the protoboard https://amzn.to/3ZObedI
+6. **Tent Pegs** (2x per sensor) these were connected via wires to the resistors which then form the voltage dividers as inputs to the microcontroller. https://amzn.to/3FphK2s
+7. **Heat Shrink Solder Connectors** - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder to without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut. https://amzn.to/3YJnQRT
 
 ### Equipment
-Most of these items are workshop staples.  For completeness I have listed what I used.
-1. Soldering Iron / Station (Composite Tip) https://amzn.to/406pVZd
-2. Solder 63/37 Rosin Core (thin - 0.5mm) https://amzn.to/3likx6H
-3. Digital Multimeter (DMM) https://amzn.to/3ZOJaGW
-4. Bench power-supply https://amzn.to/3yEkOUt
-5. Computer - Mac / PC etc.  I used a Raspberry Pi 4 https://amzn.to/4060Ei2
-6. Heat Gun https://amzn.to/3JhXyR9
-7. Bench Vice https://amzn.to/3JFZg00
-8. Wire Strippers https://amzn.to/3laT0Ei
-9. Wire Cutters https://amzn.to/3TkRwnA
-10. Digital Microscope https://amzn.to/3Tl6cCX (optional for double-checking soldering / debugging)
+Most of these items are workshop staples.  For completeness I have listed what I used:
+1. **Soldering Iron / Station** (Composite Tip) https://amzn.to/406pVZd
+2. **Solder 63/37 Rosin Core** (thin - 0.5mm) https://amzn.to/3likx6H
+3. **Digital Multimeter (DMM)** https://amzn.to/3ZOJaGW
+4. **Bench Power-Supply** https://amzn.to/3yEkOUt
+5. **Computer** - Mac / PC etc.  I used a Raspberry Pi 4 https://amzn.to/4060Ei2
+6. **Heat Gun** https://amzn.to/3JhXyR9
+7. **Bench Vice** https://amzn.to/3JFZg00
+8. **Wire Strippers** https://amzn.to/3laT0Ei
+9. **Wire Cutters** https://amzn.to/3TkRwnA
+10. **Digital Microscope** https://amzn.to/3Tl6cCX (optional for double-checking soldering / debugging)
 
 ## Philosophy 
 The general idea behind this project was to base it on a real-life requirement I had which was to monitor the moisture levels of 9 different types of plants in a location out of easy reach (required a ladder each time to check moisture levels with a traditional metre).   Additionally, each of these plants was planted in different hanging baskets sizes with different soils types so a sensor on a random plant would not be indicative of all the plants.  Continuous monitoring was not required as no automated watering was connected so there was no need to run power to it until actually interested in the results.  Due to the distances between the plants and where the control unit would be a large amount of wire would be required.  In my case something like 40m of wire was required in total.
