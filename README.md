@@ -189,9 +189,7 @@ Each sensor consists of the following simple voltage divider circuit.
   <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_circuit.png" />
 </p>
 
-Which is simulated here and can be interacted with:
-
-[Voltage Divider Circuit](https://everycircuit.com/circuit/4855455733776384)
+Which is simulated here and can be interacted with: [Pico Plant 3.3V Voltage Divider Circuit](https://everycircuit.com/circuit/4855455733776384)
 
 The linked simulation can be used to prototype differing resistance selections.  The “V” in the simulation maps directly to the GPIO input of the microcontroller.   As can be seen by varying the potentiometer (which simulates the differing dryness levels on a scale of 1 to 10) this brings the voltage into a logical “high” state when above a value of 3 which equates to around 1.8V on the GPIO input.   Short circuit (10) yields 3.3V which is still safe as the GPIO input.   Anything dryer / lower (<3) than this is a  logical “low” (< 1.8V) and triggers the false boolean state on the input.  The undefined area between 1.8v and 0.8v will generally trigger an intermittent transient state which shows up on the LCD as a flickering ON/OFF state for that sensor.
 
