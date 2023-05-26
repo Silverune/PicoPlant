@@ -92,6 +92,24 @@ These are items I ended up using but depending on your installation requirements
 6. **Tent Pegs** (2x per sensor) these were connected via wires to the resistors which then form the voltage dividers as inputs to the microcontroller. https://amzn.to/3FphK2s
 7. **Heat Shrink Solder Connectors** - these made connecting the wires to the tent pegs relatively straight forward as the tent pegs are not easy to simply solder to without using a lot of solder/flux and a substantial soldering iron due to the mass of the pegs.   This provided an easy shortcut. https://amzn.to/3YJnQRT
 
+The female header 20-pin mounts being used to separate the interface cables:
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/3M_female.jpg" />
+</p>
+
+Electrical Connecting Adapters:
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/3M_interface.jpg" />
+</p>
+
+When both are connected together form the following unit which I have zip-tied to vertical support:
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/3M.jpg" />
+</p>
+
 ### Equipment
 Most of these items are workshop staples.  For completeness I have listed what I used:
 1. **Soldering Iron / Station** (Composite Tip) https://amzn.to/406pVZd
@@ -344,15 +362,6 @@ Similarly, each of the moisture sensors is also updated by moving the cursor bac
 </p>
 
 The top row is showing the temperature in celsius while the bottom consists of each cell showing our custom character for either "wet" (full) or "dry" (hollow square).  It is easy to change this to whatever is desired but this served to be quite clear at a distance when performing the actual watering and monitoring the display.
-
-| Photos |
-| ---------- |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_plant.jpg "3M Plant Installation") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_interface.jpg "3M Interface") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M.jpg "3M Wall Installation") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_female.jpg "3M Female Connections") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_circuit.jpg "3M Circuit") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_LCD.jpg "3M Display") |
 
 # Links
 - [Raspberry Pi Pico W Official Circuit Diagram](https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf)
