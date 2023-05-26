@@ -363,6 +363,11 @@ Similarly, each of the moisture sensors is also updated by moving the cursor bac
 
 The top row is showing the temperature in celsius while the bottom consists of each cell showing our custom character for either "wet" (full) or "dry" (hollow square).  It is easy to change this to whatever is desired but this served to be quite clear at a distance when performing the actual watering and monitoring the display.
 
+# Summary
+The above project creates a simple yet versatile water monitoring solution using readily available off-the-shelf components.  It would act as a good introduction to any hobbyist looking to get into electronics or using microcontrollers.   It can act as a starting point to a more involved sensing system that would be used for continuous monitoring and there are plenty of spare pins on the microcontroller so that automated watering could also be implemented if so required.   Also, the Wifi features of the Pico W have not been actively used but I chose this to future-proof later changes without the need to install a different controller.
+
+I hope this has been helpful, feedback always welcome.
+
 # Links
 - [Raspberry Pi Pico W Official Circuit Diagram](https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf)
 - [Raspberry Pi Pico W Official Documentation](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html#pinout-and-design-files17)
