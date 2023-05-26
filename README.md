@@ -16,6 +16,11 @@ Which is controlled via the following circuit using a Raspberry Pi Pico W and LC
   <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/circuit.png" />
 </p>
 
+The finished display looks as follows:
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/3M_LCD.jpg" />
+</p>
+
 **NOTE** I have added affiliate links to most of the items listed in this blog.  As such, any purchases made through those links results in a small commision which assists in developing the project further.
 
 ## Key Elements
@@ -57,7 +62,7 @@ Note: this item is almost always shipped in any Arduino compatible starter kit (
 
 ### Other - Necessary Evils
 While not key elements, the following are also required for the project:
-1. **5V DC Power Supply** (the RPIPW requires 3.3V but the display is a 5V device so needs this extra voltage) https://amzn.to/3lhiHTq  Alternatively, I could have used a boost converter such as the TPS61200, LTC3525, MAX1724/MAX756 or MCP1640. All of these ICs are specifically designed to provide voltage boosting capabilities within the scope of the project.  However, as I already had a 5V source this was not required.  If only powering the RPIPW from the 3.3V USB source this may be of interest (while adding slightly to the complexity).
+1. **5V DC Power Supply** (the RPIPW requires 3.3V but the display is a 5V device so needs this extra voltage.  Total current draw is only in the order of 40mA) https://amzn.to/3lhiHTq  Alternatively, I could have used a boost converter such as the TPS61200, LTC3525, MAX1724/MAX756 or MCP1640. All of these ICs are specifically designed to provide voltage boosting capabilities within the scope of the project.  However, as I already had a 5V source this was not required.  If only powering the RPIPW from the 3.3V USB source this may be of interest (while adding slightly to the complexity).
 2. **2.1mm Female Power Jack** for connecting the power to the board https://amzn.to/3YWlJdS
 3. **Protoboard** for soldering everything together https://amzn.to/3JfQLax / https://core-electronics.com.au/protoboard-63-row.html
 4. **Hookup Wire** (I used solid core) to hook everything up https://amzn.to/3yDnwJN
@@ -193,14 +198,15 @@ Which is simulated here and can be interacted with: [Pico Plant 3.3V Voltage Div
 
 The linked simulation can be used to prototype differing resistance selections.  The “V” in the simulation maps directly to the GPIO input of the microcontroller.   As can be seen by varying the potentiometer (which simulates the differing dryness levels on a scale of 1 to 10) this brings the voltage into a logical “high” state when above a value of 3 which equates to around 1.8V on the GPIO input.   Short circuit (10) yields 3.3V which is still safe as the GPIO input.   Anything dryer / lower (<3) than this is a  logical “low” (< 1.8V) and triggers the false boolean state on the input.  The undefined area between 1.8v and 0.8v will generally trigger an intermittent transient state which shows up on the LCD as a flickering ON/OFF state for that sensor.
 
-If requiring finer precision in the on / off state the resistor can be changed to something lower (e.g., 10k ohm) which will make the sensor more sensitive.   An alternative is to instead install a potentiometer (100k) which can be used to perfectly tweak the dry/non-dry setting for your particular scenario.   This was over-kill for my requirements but would work without a lot of modification (quite a bit more cost / soldering though).
-This fundamentally boils down to the following equivalant circuit:
+If requiring finer precision in the on / off state the resistor can be changed to something lower (e.g., 10k ohm) which will make the sensor more sensitive.   An alternative is to instead install a potentiometer (100k ohm) which can be used to perfectly tweak the dry / non-dry setting for your particular scenario.   This was over-kill for my requirements but would be an easy modification (quite a bit more cost / soldering though).
+
+The voltage divider circuit fundamentally boils down to the following equivalant circuit:
 
 <p align="center">
   <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_b.png" />
 </p>
 
-Which in practicality looks like this with the two sensors going into the pot to have the moisture measured
+Which in practicality looks like this with the two sensors going into the plants soil to have the moisture measured.
 
 <p align="center">
   <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_a.png" />
