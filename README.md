@@ -17,8 +17,21 @@ Which is controlled via the following circuit using a Raspberry Pi Pico W and LC
 </p>
 
 The finished display looks as follows:
+
 <p align="center">
   <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/3M_LCD.jpg" />
+</p>
+
+The entire build connected to an interface module:
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/3M.jpg" />
+</p>
+
+Installed in some hanging plants:
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/3M_plant.jpg" />
 </p>
 
 **NOTE** - I have added affiliate links to most of the items listed in this blog.  As such, any purchases made through those links results in a small commision which assists in developing the project further.
