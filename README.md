@@ -345,17 +345,6 @@ Similarly, each of the moisture sensors is also updated by moving the cursor bac
 
 The top row is showing the temperature in celsius while the bottom consists of each cell showing our custom character for either "wet" (full) or "dry" (hollow square).  It is easy to change this to whatever is desired but this served to be quite clear at a distance when performing the actual watering and monitoring the display.
 
-# Design
-| Diagrams |
-| ---------- |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/circuit.png "Circuit Design") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/LC1602.png "LCD1602 16x2 LCD") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/raspberry_pi_pico_w_pinout.png "Raspberry Pi Pico W Official") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_a.png "Voltage Divider Practical") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_b.png "Voltage Divider Equivalant Circuit") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/voltage_divider_circuit.png "Voltage Divider Circuit") |
-| ![alt text](https://github.com/Silverune/PicoPlant/blob/main/diagrams/probes.png "Probes") |
-
 | Photos |
 | ---------- |
 | ![alt text](https://github.com/Silverune/PicoPlant/blob/main/photos/3M_plant.jpg "3M Plant Installation") |
