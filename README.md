@@ -21,7 +21,7 @@ The finished display looks as follows:
   <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/3M_LCD.jpg" />
 </p>
 
-**NOTE** I have added affiliate links to most of the items listed in this blog.  As such, any purchases made through those links results in a small commision which assists in developing the project further.
+**NOTE** - I have added affiliate links to most of the items listed in this blog.  As such, any purchases made through those links results in a small commision which assists in developing the project further.
 
 ## Key Elements
 The following are the primary elements required:
@@ -283,7 +283,15 @@ At startup all of these inputs / outputs are configured and the appropriate libr
 
 Neither of these pins appear on the regular pin-out diagram but the software maps to the analog / digital ports just like any other input.
 
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/raspberry_pi_pico_w_pinout.png" />
+</p>
+
 For my particular installation, I wanted to have all the moisture sensors on one side of the microcontroller and leave the other side purely for the LCD.   This was to give a little more space on protoboard to focus on each of these sections in isolation of the other.  So the moisture sensors are mapped to GPIO pins 6-14 while most of the LCD control pins are on the other edge of the micrcontroller GPIO pins 16-21.  There is also an analog input pins configured which shows the output of the LCD contrast potentimometer but this is purely optional and was used during development for display on a serial monitor.
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/3M_circuit.jpg" />
+</p>
 
 The only other significant initialization before the main loop is creating a number of custom characters for the LCD display as these are not by default supported with the existing libraries I was using.  The characters are:
 
@@ -292,6 +300,10 @@ The only other significant initialization before the main loop is creating a num
 * **symbol to show for acceptable moisture** - "wet"
 
 These are simply encoded into a sequence of 8 5-bit values (additional bits of byte are ignored) which are then handed to the library for use later.   Additionally, we also initialize the LCD library and show an initial screen.   Due to the way the main loop (moves cursor to the update location and doesn't refresh whole screen) updates the screen the labels for the temperature and water only ever need to be sent to the LCD once at startup.
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/3M_LCD.jpg" />
+</p>
 
 Next is the main loop.  Here is where the microcontroller spends all of its time performing the same operations until it is switched off.  These are:
 
