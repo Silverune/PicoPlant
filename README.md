@@ -6,6 +6,15 @@
 ## Introduction
 This project develops a low cost microcontroller controlled moisture monitoring solution that can be applied to a variety of moisture detection requirements.  The entire project should cost similar to the price of a commercial single moisture probe with plenty of scope for future enhancement.  Some knowledge of interfacing to a microcontroller and the ability to solder is required.
 
+### Final Product
+The following is a photos show the completed project along with it being used to monitor 9 hanging plants.   The control unit is on the bottom right of the picture (blue display) with the probes connecting to an interface box and then feeding to the individual plants via the metal support at the top.
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/photos/PicoPlantInstallation.jpg" />
+</p>
+
+The top-level components of the project.
+
 <p align="center">
   <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/top_level.png" />
 </p>
