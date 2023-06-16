@@ -84,7 +84,7 @@ Note: this item is almost always shipped in any Arduino compatible starter kit (
 
 ### Other - Necessary Evils
 While not key elements, the following are also required for the project:
-1. **5V DC Power Supply** (the RPIPW requires 3.3V but the display is a 5V device so needs this extra voltage.  Total current draw is only in the order of 40mA) https://amzn.to/3lhiHTq  Alternatively, I could have used a boost converter such as the TPS61200, LTC3525, MAX1724/MAX756 or MCP1640. All of these ICs are specifically designed to provide voltage boosting capabilities within the scope of the project.  However, as I already had a 5V source this was not required.  If only powering the RPIPW from the 3.3V USB source this may be of interest (while adding slightly to the complexity).
+1. **5V DC Power Supply** (the RPIPW requires 3.3V but the display is a 5V device so needs this extra voltage.  Total current draw is only in the order of 400mA) https://amzn.to/3lhiHTq  Alternatively, I could have used a boost converter such as the TPS61200, LTC3525, MAX1724/MAX756 or MCP1640. All of these ICs are specifically designed to provide voltage boosting capabilities within the scope of the project.  However, as I already had a 5V source this was not required.  If only powering the RPIPW from the 3.3V USB source this may be of interest (while adding slightly to the complexity).
 2. **2.1mm Female Power Jack** for connecting the power to the board https://amzn.to/3YWlJdS
 3. **Protoboard** for soldering everything together https://amzn.to/3JfQLax / https://core-electronics.com.au/protoboard-63-row.html
 4. **Hookup Wire** (I used solid core) to hook everything up https://amzn.to/3yDnwJN
