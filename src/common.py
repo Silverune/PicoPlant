@@ -14,3 +14,6 @@ def scale_value(value, in_min, in_max, out_min, out_max):
 
 def map(value, in_min, in_max, out_min, out_max):  
   return scaled_value(value, in_min, in_max, out_min, out_max)
+
+def print_bytearray(byte_array):
+    print(' '.join(hex(byte) for byte in byte_array))

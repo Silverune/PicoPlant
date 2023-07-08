@@ -12,11 +12,20 @@ from gpio_lcd import GpioLcd
 from common import scale_value
 from vds001 import VDS001
 from pico_temp import PicoTemp
+from util import LIFOAverage
+
+# config
+BATTERY_POWER = True
+ANALOG_READ_SLEEP_MS = 100
 
 # lcd custom characters (limit 8)
 SYMBOL_CELSIUS = 0
 SYMBOL_EMPTY = 1
 SYMBOL_FULL = 2
+SYMBOL_POWER = 3
+
+CHAR_EMPTY = 0x11
+CHAR_FULL = 0x1F
 
 # lcd data
 d4Pin = 18
@@ -30,8 +39,14 @@ rsPin = 16
 ledPin = 25
 contrastPin = 26
 
+# battery
+powerPin = 27
+
 # inputs
 pinContrast = ADC(Pin(contrastPin))
+
+if BATTERY_POWER:
+    batteryPower = ADC(Pin(powerPin))
 
 # max of 9 supported by display
 waterSensors = [
@@ -71,6 +86,17 @@ def digitalToDebugRepresentation(value):
         return "*"
     return "."
 
+def create_bytearray(percentage):
+    rows = 8
+    byte_array = bytearray()
+    perc = 0 if percentage == 0 else (rows * (100 - percentage) / 100)
+    for row in range(rows):
+        if row == 0 or row == rows - 1 or row > perc:
+            byte_array.append(CHAR_FULL)
+        else:
+            byte_array.append(CHAR_EMPTY)
+    return byte_array
+
 # init
 def init_lcd():
     global lcd
@@ -79,27 +105,46 @@ def init_lcd():
     lcd.move_to(0,1)
     lcd.putstr("Water: ")
 
+def update_battery(power):
+    lcd.custom_char(SYMBOL_POWER, create_bytearray(power))
+    lcd.move_to(15,0)
+    lcd.putchar(chr(SYMBOL_POWER))
+    
 lcd.custom_char(SYMBOL_CELSIUS, bytearray([0x06,0x09,0x06,0x0,0x0,0x0,0x0,0x0]))
-lcd.custom_char(SYMBOL_EMPTY, bytearray([0x1F,0x11,0x11,0x11,0x11,0x11,0x11,0x1F]))
-lcd.custom_char(SYMBOL_FULL, bytearray([0x1F,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F]))
+lcd.custom_char(SYMBOL_EMPTY, bytearray([CHAR_FULL,CHAR_EMPTY,CHAR_EMPTY,CHAR_EMPTY,CHAR_EMPTY,CHAR_EMPTY,CHAR_EMPTY,CHAR_FULL]))
+lcd.custom_char(SYMBOL_FULL, bytearray([CHAR_FULL,CHAR_FULL,CHAR_FULL,CHAR_FULL,CHAR_FULL,CHAR_FULL,CHAR_FULL,CHAR_FULL]))
 
 init_lcd()
 
+lifo_avg = LIFOAverage()
+
 while True:
     contrast = pinContrast.read_u16() # 16-bit integer result
-    sleep_ms(100)
+    sleep_ms(ANALOG_READ_SLEEP_MS)
 
     temperature = temp.update()
-    sleep_ms(100)
+    sleep_ms(ANALOG_READ_SLEEP_MS)
 
     for waterSensor in waterSensors:
         waterSensorsDebug = waterSensor.update()    
 
     waterSensorsDebug = ""
     for waterSensor in waterSensors:
-        waterSensorsDebug = waterSensorsDebug + digitalToDebugRepresentation(waterSensor.read()[RDJ001.DIGITAL])
+        waterSensorsDebug = waterSensorsDebug + digitalToDebugRepresentation(waterSensor.read()[VDS001.DIGITAL])
 
+    if BATTERY_POWER:
+        battery = batteryPower.read_u16() # 16-bit integer result
+        sleep_ms(ANALOG_READ_SLEEP_MS)
+        raw_power = scale_value(battery, 40000, 56360, 0, 100)
+        bounded_power = max(0, min(raw_power, 100))
+        lifo_avg.add_value(bounded_power)
+        power = round(lifo_avg.get_average())
+    
     display = "Contrast: {} Temp: {} Water: {}".format(scale_value(contrast, 0, 65535, 0, 100), temperature, waterSensorsDebug)
+    
+    if BATTERY_POWER:
+        display = "{} Power: {} ({} {}) ({} {})".format(display, power, raw_power, bounded_power, battery, hex(battery))
+        
     print(display)
 
     lcd.move_to(7,0)
@@ -108,6 +153,9 @@ while True:
     lcd.putstr("{} ".format(temperature))
     lcd.putchar(chr(SYMBOL_CELSIUS))
     lcd.putstr("C")
+    
+    if BATTERY_POWER:
+        update_battery(power)
 
     lcd.move_to(7,1)
     lcd.putstr("         ")
@@ -116,3 +164,4 @@ while True:
         lcd.putchar(chr(digitalToRepresentation(waterSensor.read()[waterSensor.DIGITAL])))
 
     led.toggle()
+
