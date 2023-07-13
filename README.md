@@ -387,6 +387,16 @@ To estimate the battery life, divide the total energy capacity of the battery pa
 ```
 Battery Life = Battery Capacity / Power Consumption = 4Ah / 0.2W = 20 hours
 ```
+
+### Voltage Divider
+Circuit design:
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/battery_indicator_circuit.png" />
+</p>
+
+Which can be interacted via the simulation here: [Battery Indicator](https://everycircuit.com/circuit/4574887641088000)
+
 Therefore, with a 6V battery pack consisting of four alkaline batteries, and a circuit drawing 40mA of current from a 5V voltage regulator, the batteries would last approximately 20 hours. This is a rough estimation, and it may vary depending on factors such as battery discharge characteristics and efficiency of the voltage regulator but certainly gives a ballpark idea that the unit can be run for a long time without needing the batteries replaced as it’s not a unit that should be left on and typically would only be switched on for a few minutes at a time.
 
 The following circuit can be added in place of the existing 5V DC input:
