@@ -375,7 +375,7 @@ The top row is showing the temperature in celsius while the bottom consists of e
 # Battery Power / Indicator (Optional)
 One modification to the base design is to add in an option for the unit to be battery powered rather than requiring a wall power-supply.    The current draw is only in the order of 40mA and typically lower with the main draw only being the LCD1602 rather than the Raspberry Pi Pico.
 
-The main requirement is providing a 5V voltage for the ```VSYS``` input on the RPIPI.   If using a simple 1.5V battery pack of 4 this outputs 6V which can then be fed into a voltage regulator to step down to 5V.  Assuming using an alkaline AAA battery which has a capacity of 850-1200mAh (for simplicity we’ll say 1000mAh).  Therefore,
+The main requirement is providing a 5V voltage for the ```VSYS``` input on the RPIPW.   If using a simple 1.5V battery pack of 4 this outputs 6V which can then be fed into a voltage regulator to step down to 5V.  Assuming using an alkaline AAA battery which has a capacity of 850-1200mAh (for simplicity we’ll say 1000mAh).  Therefore,
 ```
   4 x 1000mA = 4000mA total
 ```
