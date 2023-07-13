@@ -135,7 +135,7 @@ while True:
     if BATTERY_POWER:
         battery = batteryPower.read_u16() # 16-bit integer result
         sleep_ms(ANALOG_READ_SLEEP_MS)
-        raw_power = scale_value(battery, 40000, 56360, 0, 100)
+        raw_power = scale_value(battery, 54000, 65535, 0, 100)
         bounded_power = max(0, min(raw_power, 100))
         lifo_avg.add_value(bounded_power)
         power = round(lifo_avg.get_average())
