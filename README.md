@@ -372,6 +372,36 @@ Similarly, each of the moisture sensors is also updated by moving the cursor bac
 
 The top row is showing the temperature in celsius while the bottom consists of each cell showing our custom character for either "wet" (full) or "dry" (hollow square).  It is easy to change this to whatever is desired but this served to be quite clear at a distance when performing the actual watering and monitoring the display.
 
+# Battery Power / Indicator (Optional)
+One modification to the base design is to add in an option for the unit to be battery powered rather than requiring a wall power-supply.    The current draw is only in the order of 40mA and typically lower with the main draw only being the LCD1602 rather than the Raspberry Pi Pico.
+
+The main requirement is providing a 5V voltage for the ```VSYS``` input on the RPIPI.   If using a simple 1.5V battery pack of 4 this outputs 6V which can then be fed into a voltage regulator to step down to 5V.  Assuming using an alkaline AAA battery which has a capacity of 850-1200mAh (for simplicity we’ll say 1000mAh).  Therefore,
+```
+  4 x 1000mA = 4000mA total
+```
+So the power consumption is:
+```
+Voltage * Current = 5V * 40mA = 0.2 watts
+```
+To estimate the battery life, divide the total energy capacity of the battery pack by the power consumption of the circuit:
+```
+Battery Life = Battery Capacity / Power Consumption = 4Ah / 0.2W = 20 hours
+```
+Therefore, with a 6V battery pack consisting of four alkaline batteries, and a circuit drawing 40mA of current from a 5V voltage regulator, the batteries would last approximately 20 hours. This is a rough estimation, and it may vary depending on factors such as battery discharge characteristics and efficiency of the voltage regulator but certainly gives a ballpark idea that the unit can be run for a long time without needing the batteries replaced as it’s not a unit that should be left on and typically would only be switched on for a few minutes at a time.
+
+The following circuit can be added in place of the existing 5V DC input:
+
+<p align="center">
+  <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/MR2940CT-5.0_Battery.png" />
+</p>
+
+The main elements are the 6V battery pack feeding into a 5V voltage regulator which then feeds into the RPIPI.  The regulator is required to step down the voltage from 6V to 5V while also ensuring smooth operation for varying current draw.
+
+** Low Battery Indicator
+One advantage of having the LCD screen as part of this project is also using it as a display for the state of the battery health.  The design essentially takes advantage of the unused ```ADC1``` input and uses a voltage divider circuit out of the battery pack to change the input from 3.3V when the voltage is at 6V down to 2.78V once the voltage reaches 5V.   At 5V input to the voltage regulator the IC is no longer able to output 5V to the ```VSYS``` line so the batteries should be replaced.  This pin can then be read as part of the main loop to check the voltage and scale an indicator on the screen appropriately.
+
+This is done by regenerating a custom display character each time which shows one of the 16x2 cells partially filled depending on scaling between the 3.33V (full) and 2.78V (empty).  The battery functionality can be toggled on / off using the boolean “BATTERY_POWER” at the top of the main.py MicroPython code.
+
 # Summary
 The above project creates a simple yet versatile water monitoring solution using readily available off-the-shelf components.  It would act as a good introduction to any hobbyist looking to get into electronics or using microcontrollers.   It can act as a starting point to a more involved sensing system that would be used for continuous monitoring and there are plenty of spare pins on the microcontroller so that automated watering could also be implemented if so required.   Also, the Wifi features of the Pico W have not been actively used but I chose this to future-proof later changes without the need to install a different controller.
 
