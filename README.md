@@ -395,7 +395,7 @@ The following circuit can be added in place of the existing 5V DC input:
   <img src="https://github.com/Silverune/PicoPlant/blob/main/diagrams/MR2940CT-5.0_Battery.png" />
 </p>
 
-The main elements are the 6V battery pack feeding into a 5V voltage regulator which then feeds into the RPIPI.  The regulator is required to step down the voltage from 6V to 5V while also ensuring smooth operation for varying current draw.
+The main elements are the 6V battery pack feeding into a 5V voltage regulator which then feeds into the RPIPW.  The regulator is required to step down the voltage from 6V to 5V while also ensuring smooth operation for varying current draw.
 
 ## Low Battery Indicator
 One advantage of having the LCD screen as part of this project is also using it as a display for the state of the battery health.  The design essentially takes advantage of the unused ```ADC1``` input and uses a voltage divider circuit out of the battery pack to change the input from 3.3V when the voltage is at 6V down to 2.78V once the voltage reaches 5V.   At 5V input to the voltage regulator the IC is no longer able to output 5V to the ```VSYS``` line so the batteries should be replaced.  This pin can then be read as part of the main loop to check the voltage and scale an indicator on the screen appropriately.
