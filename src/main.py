@@ -89,7 +89,7 @@ def digitalToDebugRepresentation(value):
 def create_bytearray(percentage):
     rows = 8
     byte_array = bytearray()
-    perc = 0 if percentage == 0 else (rows * (100 - percentage) / 100)
+    perc = 100 if percentage == 0 else (rows * (100 - percentage) / 100)
     for row in range(rows):
         if row == 0 or row == rows - 1 or row > perc:
             byte_array.append(CHAR_FULL)
@@ -135,7 +135,7 @@ while True:
     if BATTERY_POWER:
         battery = batteryPower.read_u16() # 16-bit integer result
         sleep_ms(ANALOG_READ_SLEEP_MS)
-        raw_power = scale_value(battery, 54000, 65535, 0, 100)
+        raw_power = scale_value(battery, 54000, 62000, 0, 100)
         bounded_power = max(0, min(raw_power, 100))
         lifo_avg.add_value(bounded_power)
         power = round(lifo_avg.get_average())
