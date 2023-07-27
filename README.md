@@ -416,14 +416,14 @@ One advantage of having the LCD screen as part of this project is also using it 
 
 This is done by regenerating a custom display character each time which shows one of the 16x2 cells partially filled depending on scaling between the 3.33V (full) and 2.78V (empty).  The battery functionality can be toggled on / off using the boolean “BATTERY_POWER” at the top of the main.py MicroPython code.
 
-# Dual Power / On / Off Switch (Optional)
+# Dual Power / On-Off Switch (Optional)
 
-## Power
+## Dual Power
 Another reasonable modification to the standard circuit would be to combine the battery option above with the ability to also have it powered from a wall mount DC supply.   Either supply voltage should be able to be used to power the system and with some simple diode protection even if both battery and the wall power was present the unit would still work.   Essentially, we can keep the exisiting battery circuit but then run the output from the voltage regulator through a low forward voltage drop Schottky diode (I chose the 1N5819).  The voltage drop will only be in the order of 0.3V which is within specification of the system.   Similarly, when need to modify the original 5V DC power supply design to now need to ensure it also has its own forward voltage diode.  This way there is no backfeeding to deal with if there happens to be power coming from both the battery pack and DC wall supply.  It is only recommended however to run one or the other as running both will still drain the batteries (albeit more slowly).
 
 A simulation of how it works is here: [Dual Power](https://everycircuit.com/circuit/5978638612430848)
 
-## Switch
+## On-Off Switch
 For the power switch there is a slight complication in that we really only want one switch but it needs to turn-off power in two locations.   The obviously main location is just before the ```VSYS``` input to the microcontroller (anywhere after the dual power diodes).   However, in the case where battery is being used this still results in a current draw as the battery level indicator feeds a signal to the analog input of the microcontroller before it goes goes through the voltage regulator which means that it will still be drawing a current regardless of their being no flow in the regulator.   So we need to also switch-off the battery input to this battery level circuitry when the switch is toggled (either side of the battery terminals will work).   So achieve this with two separate circuits via a single switch we use a double pole double throw (DPDT) switch that controls both parts of the circuit yet are isolated from each other.
 
 # Summary
